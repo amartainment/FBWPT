@@ -9,7 +9,7 @@ public class JumpPlayerCharacter : MonoBehaviour
 
     private void OnEnable()
     {
-        EventSystem.Jump += CharacterJump;
+        //EventSystem.Jump += CharacterJump;
     }
 
     void CharacterJump(float jumpheight)

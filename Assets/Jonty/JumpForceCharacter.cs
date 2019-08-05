@@ -6,20 +6,22 @@ public class JumpForceCharacter : MonoBehaviour
 {
     bool jumping = false, jumpisrecovering = false;
     public Rigidbody2D JumpRB;
+    public float jumpheight;
+    public float delay;
 
     private void OnEnable()
     {
-        EventSystem.Jump += CharacterJump;
+        //EventSystem.Jump += CharacterJump;
     }
 
-    void CharacterJump(float jumpheight)
+    public void CharacterJump(float jumpheight)
     {
         Debug.Log("JumpCall");
 
         if (jumping == false)
         {
             jumping = true;
-            JumpRB.AddForce(new Vector2(0, 500));
+            JumpRB.AddForce(new Vector2(0, jumpheight*100));
             Debug.Log("Jumping");
         }
     }
@@ -35,10 +37,13 @@ public class JumpForceCharacter : MonoBehaviour
     {
         Debug.Log("JumpRecovery");
         jumpisrecovering = true;
-        yield return new WaitForSeconds(0.5f);
+        waitagain:
+        yield return new WaitForSeconds(delay);
         Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity.y);
         if (gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
             jumping = false;
+        else
+            goto waitagain;
         jumpisrecovering = false;        
     }
 

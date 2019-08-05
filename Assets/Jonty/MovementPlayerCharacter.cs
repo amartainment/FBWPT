@@ -8,12 +8,12 @@ public class MovementPlayerCharacter : MonoBehaviour
 
     private void OnEnable()
     {
-        EventSystem.Movement += MoveCharacter;
+        //EventSystem.Movement += MoveCharacter;
     }
 
     private void OnDisable()
     {
-        EventSystem.Movement -= MoveCharacter;
+        //EventSystem.Movement -= MoveCharacter;
     }
 
     public void MoveCharacter(Vector2 Direction)
