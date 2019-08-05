@@ -6,8 +6,10 @@ using UnityEngine.InputSystem.PlayerInput;
 public class playerController : MonoBehaviour
 {
     Vector2 horizontalMovement;
-    float moveSpeed = 10f;  
-    // Start is called before the first frame update
+    bool canmove = true;
+    public float jumpheight;
+    //float moveSpeed = 10f;
+    //Start is called before the first frame update
     void Start()
     {
         
@@ -24,11 +26,15 @@ public class playerController : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
+        Debug.Log("OnMoveispassed");
         horizontalMovement = value.Get<Vector2>();
-        
+
+        //EventSystem.Movement(value.Get<Vector2>());
+        //gameObject.GetComponent<MovementPlayerCharacter>().MoveCharacter(value.Get<Vector2>());
+        //gameObject.GetComponent<SpeedMovementPlayerCharacter>().IncreaseMovementSpeed(value.Get<Vector2>());
     }
-    
-    
+
+
     private void OnJoin()
     {
         Debug.Log("Player joined!");
@@ -41,6 +47,7 @@ public class playerController : MonoBehaviour
     private void OnJump()
     {
         Debug.Log("Jump");
+        EventSystem.Jump(jumpheight);
     }
 
     private void OnInteract()
@@ -56,8 +63,22 @@ public class playerController : MonoBehaviour
     IEnumerator moveCoroutine(Vector2 direction)
     {
         
-        Vector3 movement = new Vector3(direction.x, 0)*moveSpeed*Time.deltaTime;
-        transform.position = transform.position + movement;
+        
+        if (direction.x == 0)
+        {
+            if (canmove == true)
+                EventSystem.Movement(direction);
+            canmove = false;
+        }
+        else
+            canmove = true;
+
+        if (canmove == true)
+            EventSystem.Movement(direction);
+
+        //Vector3 movement = new Vector3(direction.x, 0) * moveSpeed * Time.deltaTime;
+        //transform.position = transform.position + movement;
+
         yield return new WaitForEndOfFrame();
     }
 }
