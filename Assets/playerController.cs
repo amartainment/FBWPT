@@ -47,7 +47,8 @@ public class playerController : MonoBehaviour
     private void OnJump()
     {
         Debug.Log("Jump");
-        EventSystem.Jump(jumpheight);
+        //EventSystem.Jump(jumpheight);
+        gameObject.GetComponent<JumpForceCharacter>().CharacterJump(jumpheight);
     }
 
     private void OnInteract()
@@ -67,14 +68,23 @@ public class playerController : MonoBehaviour
         if (direction.x == 0)
         {
             if (canmove == true)
-                EventSystem.Movement(direction);
+            {
+                //EventSystem.Movement(direction);
+                gameObject.GetComponent<SpeedMovementPlayerCharacter>().IncreaseMovementSpeed(direction);
+                gameObject.GetComponent<MovementPlayerCharacter>().MoveCharacter(direction);
+            }
             canmove = false;
         }
         else
             canmove = true;
 
         if (canmove == true)
-            EventSystem.Movement(direction);
+        {
+            gameObject.GetComponent<SpeedMovementPlayerCharacter>().IncreaseMovementSpeed(direction);
+            gameObject.GetComponent<MovementPlayerCharacter>().MoveCharacter(direction);
+
+            //EventSystem.Movement(direction);
+        }
 
         //Vector3 movement = new Vector3(direction.x, 0) * moveSpeed * Time.deltaTime;
         //transform.position = transform.position + movement;

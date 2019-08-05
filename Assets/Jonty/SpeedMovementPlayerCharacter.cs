@@ -10,7 +10,7 @@ public class SpeedMovementPlayerCharacter : MonoBehaviour
 
     private void OnEnable()
     {
-        EventSystem.Movement += IncreaseMovementSpeed;
+        //EventSystem.Movement += IncreaseMovementSpeed;
         //EventSystem.MovementEnd += ResetCharacter;
     }
 
@@ -33,11 +33,11 @@ public class SpeedMovementPlayerCharacter : MonoBehaviour
         AccelerateisRunning = true;
         DecelerateisRunning = false;
 
-        //if (code == KeyCode.A && speed > -maxspeed)
         if (speed > -maxspeed && speed < maxspeed)
             speed += acceleration*(Mathf.Sign(dir.x));
+        else
+            StartCoroutine(Decelerate());
 
-        //Debug.Log(acceleration + " x " + (Mathf.Sign(dir.x) +" = " + (acceleration * (Mathf.Sign(dir.x)))) + ", and Speed = " + speed);
 
         yield return new WaitForEndOfFrame();
         AccelerateisRunning = false;
