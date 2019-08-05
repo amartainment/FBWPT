@@ -16,7 +16,7 @@ public class MovementPlayerCharacter : MonoBehaviour
         EventSystem.Movement -= MoveCharacter;
     }
 
-    void MoveCharacter(Vector2 Direction)
+    public void MoveCharacter(Vector2 Direction)
     {
         speed = gameObject.GetComponent<SpeedMovementPlayerCharacter>().speed;
         Debug.Log("Moving");

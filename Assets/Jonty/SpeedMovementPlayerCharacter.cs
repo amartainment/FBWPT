@@ -15,7 +15,7 @@ public class SpeedMovementPlayerCharacter : MonoBehaviour
     }
 
 
-    void IncreaseMovementSpeed(Vector2 direction)
+    public void IncreaseMovementSpeed(Vector2 direction)
     {
         if(direction.x == 0)
             StartCoroutine(Decelerate());
@@ -44,7 +44,7 @@ public class SpeedMovementPlayerCharacter : MonoBehaviour
     }
 
 
-    void ResetCharacter(KeyCode Code)
+    void ResetCharacter()
     {
        StartCoroutine(Decelerate());
     }

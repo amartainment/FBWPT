@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 7237176322297452899}
   - component: {fileID: 2415201657079881206}
   - component: {fileID: 1674581760951893333}
+  - component: {fileID: 5669655309804268862}
+  - component: {fileID: 3861005710978455345}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -31,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7072418767644467537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9436946, y: -1.28, z: -1.7774377}
+  m_LocalPosition: {x: 1.9436946, y: -1.28, z: 0}
   m_LocalScale: {x: 3.5, y: 8, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -130,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347af29cda9b8f2459b62722d5d2e80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpheight: 5
 --- !u!61 &6870057482011368793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,3 +207,28 @@ MonoBehaviour:
   speed: 0
   maxspeed: 0.1
   acceleration: 0.004
+--- !u!114 &5669655309804268862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7072418767644467537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2acb51b8d79ef4cbd053ed7a5007be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpRB: {fileID: 7237176322297452899}
+--- !u!114 &3861005710978455345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7072418767644467537}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f5878fdc5fe3f468e37d43bfe86ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
