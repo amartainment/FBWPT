@@ -94,13 +94,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af15f686db5de14cbe00b434874394e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cycleDuration: 10
+  punishmentDuration: 10
   water: 0
-  fertilizer: 1
-  waterRequired: 0
-  waterLimit: 4
-  fertilizerLimit: 4
+  wantWater: 0
+  wantFertilizer: 0
+  fertilizer: 0
+  waterLimit: 3
+  fertilizerLimit: 3
   highJumpHeight: 12
   jump: 0
+  phase2: {fileID: -8097066743225939528, guid: 5bc8b526fb7a18e459179469ca3057ba, type: 3}
+  phase3: {fileID: 401993289057952494, guid: 5bc8b526fb7a18e459179469ca3057ba, type: 3}
+  phase1: {fileID: 8315261653904549686, guid: 5bc8b526fb7a18e459179469ca3057ba, type: 3}
+  disabledSprite: {fileID: -6757947717349395550, guid: 5bc8b526fb7a18e459179469ca3057ba,
+    type: 3}
 --- !u!61 &6350248938323996613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +122,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.34749937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -125,5 +133,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.055915356}
   m_EdgeRadius: 0

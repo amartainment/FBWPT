@@ -36,6 +36,7 @@ public class ClimberBehavior : PlantGrowth
     {
         Destroy(gameObject); 
         //Instantiate Fruit.
+        //Instantiate Fruit.
         Debug.Log("Ready to harvest");
 
     }
