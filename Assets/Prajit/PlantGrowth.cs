@@ -20,7 +20,7 @@ public abstract class PlantGrowth : MonoBehaviour
 
     public int waterLimit = 4;
 
-    public int fertilizerLimit = 3;
+    public int fertilizerLimit = 4;
 
 
     // Start is called before the first frame update
@@ -99,7 +99,7 @@ public abstract class PlantGrowth : MonoBehaviour
     }
 
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag =="water")
         {
