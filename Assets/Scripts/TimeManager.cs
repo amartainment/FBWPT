@@ -16,7 +16,7 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         timer = 0;
-        //StartCoroutine(CreateTimerTick(timeInterval));
+        StartCoroutine(CreateTimerTick(timeInterval));
     }
 
     // Update is called once per frame

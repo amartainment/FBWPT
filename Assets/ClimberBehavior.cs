@@ -40,6 +40,7 @@ public class ClimberBehavior : PlantGrowth
         Instantiate(fruitPrefab, transform.position + offset, Quaternion.identity);
         
 
+
     }
     override public void changePhase(int number)
     {
