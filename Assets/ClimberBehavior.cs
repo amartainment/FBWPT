@@ -9,11 +9,12 @@ public class ClimberBehavior : PlantGrowth
     public GameObject vineSegment;
     public GameObject saplingPrefab;
     GameObject sapling;
+
     // Start is called before the first frame update
     void Start()
     {
-        waterRequired = true;
-        StartCoroutine(waterCycle());
+        waterCycleTimer = waterCycle(cycleDuration);
+        StartCoroutine(waterCycleTimer);
         //instantiate sapling
         instantiateSapling();
     }

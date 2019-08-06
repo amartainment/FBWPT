@@ -44,9 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e03c37bbe01f574c899e1c907467755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  water: 1
+  cycleDuration: 10
+  punishmentDuration: 10
+  water: 0
+  wantWater: 0
+  wantFertilizer: 0
   fertilizer: 0
-  waterRequired: 1
   waterLimit: 2
   fertilizerLimit: 3
   fruit: {fileID: 0}
