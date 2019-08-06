@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3799210826515819480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3359045526626460701}
+  - component: {fileID: 118223939603904835}
+  m_Layer: 0
+  m_Name: InteractHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3359045526626460701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799210826515819480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1433696418265835675}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &118223939603904835
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799210826515819480}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.13014206, y: 0.028058141}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.13716379, y: 0.18611628}
+  m_EdgeRadius: 0
 --- !u!1 &7072418767644467537
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,17 +67,17 @@ GameObject:
   m_Component:
   - component: {fileID: 1433696418265835675}
   - component: {fileID: 1058699263068840560}
+  - component: {fileID: 6870057482011368793}
   - component: {fileID: 7013903766465055320}
   - component: {fileID: 6772798231083631576}
-  - component: {fileID: 6870057482011368793}
   - component: {fileID: 7237176322297452899}
   - component: {fileID: 2415201657079881206}
   - component: {fileID: 1674581760951893333}
   - component: {fileID: 5669655309804268862}
-  - component: {fileID: 3861005710978455345}
+  - component: {fileID: -3611015762538390483}
   m_Layer: 0
   m_Name: Players
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,8 +91,9 @@ Transform:
   m_GameObject: {fileID: 7072418767644467537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.0423, y: -1.3022, z: 0}
-  m_LocalScale: {x: 6.4951963, y: 7.7230477, z: 0}
-  m_Children: []
+  m_LocalScale: {x: 7, y: 7, z: 0}
+  m_Children:
+  - {fileID: 3359045526626460701}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,6 +146,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &6870057482011368793
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7072418767644467537}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: fcaf7dc741ddeab4cbe274a1d9c67ee6, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0009472482}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.13897976, y: 0.13256198}
+  m_EdgeRadius: 0
 --- !u!114 &7013903766465055320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,32 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpheight: 5.5
---- !u!61 &6870057482011368793
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7072418767644467537}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.00006142259, y: -0.0011269301}
-  m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.13897976, y: 0.13671035}
-  m_EdgeRadius: 0
 --- !u!50 &7237176322297452899
 Rigidbody2D:
   serializedVersion: 4
@@ -178,7 +236,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2415201657079881206
 MonoBehaviour:
@@ -205,8 +263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  maxspeed: 0.1
-  acceleration: 0.004
+  maxspeed: 6
+  acceleration: 2.08
 --- !u!114 &5669655309804268862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,18 +277,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2acb51b8d79ef4cbd053ed7a5007be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumping: 0
   JumpRB: {fileID: 7237176322297452899}
-  jumpheight: 3
+  jumpheight: 10
   delay: 0.1
---- !u!114 &3861005710978455345
+  raycastoffset: 0.5
+--- !u!114 &-3611015762538390483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7072418767644467537}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f5878fdc5fe3f468e37d43bfe86ad3, type: 3}
+  m_Script: {fileID: 11500000, guid: 378dcfb109992ac47b9d14f2b91baf1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashdistance: 1000
+  direction1: 0
