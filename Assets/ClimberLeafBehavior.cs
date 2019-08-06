@@ -29,12 +29,12 @@ public class ClimberLeafBehavior : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, -90);
         }
 
-        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void Bloom()
     {
         transform.eulerAngles = new Vector3(0, 0, 0);
-        GetComponent<PolygonCollider2D>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }

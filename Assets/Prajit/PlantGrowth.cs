@@ -36,9 +36,7 @@ public abstract class PlantGrowth : MonoBehaviour
     }
 
 
-    //disablePlantEffects
-    //enablePlantEffects
-    //changePhase
+    
     public virtual void changePhase(int fertilizer)
     {
 
@@ -80,8 +78,10 @@ public abstract class PlantGrowth : MonoBehaviour
         {
             water = 0;
             enablePlantEffects();
+           
             fertilizerRequired = false;
             fertilizer++;
+            changePhase(fertilizer);
             Destroy(fert);
             StartCoroutine("waterCycle");
         }
@@ -120,19 +120,21 @@ public abstract class PlantGrowth : MonoBehaviour
     {
         if(!waterGiven && waterRequired)
         {
+            disablePlantEffects();
             if (water != 0)
             {
                 water--;
-                disablePlantEffects();
+                
             }
         }
         if(!fertilizerGiven && fertilizerRequired)
         {
-            
-            if(fertilizer!=0)
+            //plant effects need to be disabled even if fertilizer count is 0
+            disablePlantEffects();
+            if (fertilizer!=0)
             {
                 fertilizer--;
-                disablePlantEffects();
+                
                 //call disable plant effects
                 water = 3;
             }

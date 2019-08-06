@@ -42,10 +42,7 @@ public class burrowTestHeroCOde : MonoBehaviour
     // to be removed after testing! function to be called in the harvest function of a tree
     private void OnJump ()
     {
-        if(nearABurrow)
-        {
-            thisBurrow.HarvestComplete();
-        }
+        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

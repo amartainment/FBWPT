@@ -15,10 +15,11 @@ public class JumpForceCharacter : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D LandedCheck = Physics2D.Raycast((transform.position- new Vector3(0, raycastoffset)), -transform.up, 0.1f);
+        RaycastHit2D LandedCheck = Physics2D.Raycast((transform.position- new Vector3(0, raycastoffset)), -transform.up,0.1f);
         Debug.DrawRay((transform.position - new Vector3(0, raycastoffset)), -transform.up);
         if (LandedCheck.collider != null && jumpisrecovering == false)
         {
+            
             jumping = false;
             //Debug.Log("Landed Check " + LandedCheck.distance);
         }
