@@ -8,7 +8,7 @@ public class BurrowBehavior : MonoBehaviour
     private bool readyToPlant = true;
     private bool planted = false;
     private bool plantingCoroutineIsRunning = false;
-    
+    public GameObject plant;
     public Sprite noBurrowSprite;
     Sprite burrowedSprite;
     GameObject seed;
@@ -31,7 +31,7 @@ public class BurrowBehavior : MonoBehaviour
             //   seed = equippedSeed.GetComponent<SeedBehavior>();
             // currentPlayer = activePlayer.GetComponent<PlayerBehavior>();
             //plant a tree
-            GameObject newTree = GameObject.Find("Tree1"); // get from seedBehavior attached to object - seed.treeObject;
+            GameObject newTree = plant; // get from seedBehavior attached to object - seed.treeObject;
             if (!plantingCoroutineIsRunning)
             {
                 StartCoroutine(StartPlantingTimer(newTree, 1, activePlayer));
