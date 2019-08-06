@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantGrowth : MonoBehaviour
+public abstract class PlantGrowth : MonoBehaviour
 {
     private bool waterReceived;
 
-    public int water = 0;
+    public int water = 1;
 
     public int fertilizer = 0;
 
-    private bool waterRequired;
+    public  bool waterRequired;
 
     private bool fertilizerRequired;
 
@@ -35,6 +35,24 @@ public class PlantGrowth : MonoBehaviour
 
     }
 
+
+    
+    public virtual void changePhase(int fertilizer)
+    {
+
+    }
+
+    public virtual void disablePlantEffects()
+    {
+
+    }
+
+    public virtual void enablePlantEffects()
+    {
+
+    }
+
+
     public void WaterManager(GameObject wat)
     {
         if (waterRequired && water < waterLimit)
@@ -42,6 +60,7 @@ public class PlantGrowth : MonoBehaviour
             water++;
             waterRequired = false;
             Destroy(wat);
+            enablePlantEffects();
             StartCoroutine("waterCycle");
 
         }
@@ -52,14 +71,17 @@ public class PlantGrowth : MonoBehaviour
             fertilizerRequired = true;
         }
     }
-
+    
     public void fertilizerManager(GameObject fert)
     {
         if (fertilizerRequired && fertilizer < fertilizerLimit)
         {
             water = 0;
+            enablePlantEffects();
+           
             fertilizerRequired = false;
             fertilizer++;
+            changePhase(fertilizer);
             Destroy(fert);
             StartCoroutine("waterCycle");
         }
@@ -71,13 +93,13 @@ public class PlantGrowth : MonoBehaviour
         }
     }
 
-    public void harvest()
+    public virtual void harvest()
     {
-        Debug.Log("Ready to harvest");
+        
     }
 
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag =="water")
         {
@@ -98,16 +120,22 @@ public class PlantGrowth : MonoBehaviour
     {
         if(!waterGiven && waterRequired)
         {
+            disablePlantEffects();
             if (water != 0)
             {
                 water--;
+                
             }
         }
         if(!fertilizerGiven && fertilizerRequired)
         {
-            if(fertilizer!=0)
+            //plant effects need to be disabled even if fertilizer count is 0
+            disablePlantEffects();
+            if (fertilizer!=0)
             {
                 fertilizer--;
+                
+                //call disable plant effects
                 water = 3;
             }
         }
@@ -121,7 +149,7 @@ public class PlantGrowth : MonoBehaviour
         waterGiven = false;
         fertilizerGiven = false;
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         waterPenalty();
 
     }

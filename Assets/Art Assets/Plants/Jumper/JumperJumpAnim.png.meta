@@ -1,37 +1,49 @@
 fileFormatVersion: 2
-guid: 0008f8e4d7e99a64c874dd8ab568e0af
+guid: 76c18415cf49443458f5b16f7df4efaf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4278718147112708030
-    second: ClimberAnim_0
+      213: -4690381310482000702
+    second: JumperJumpAnim_0
   - first:
-      213: -7864143635946262801
-    second: ClimberAnim_1
+      213: -7264472141601680592
+    second: JumperJumpAnim_1
   - first:
-      213: -1159655722000513217
-    second: ClimberAnim_2
+      213: 5863027015419550390
+    second: JumperJumpAnim_2
   - first:
-      213: -1972204970340941410
-    second: ClimberAnim_3
+      213: -1258484419026702408
+    second: JumperJumpAnim_3
   - first:
-      213: -1260294731892140550
-    second: ClimberAnim_4
+      213: -5557102934463811377
+    second: JumperJumpAnim_4
   - first:
-      213: 3568449532738581417
-    second: ClimberAnim_5
+      213: 143787554096043874
+    second: JumperJumpAnim_5
   - first:
-      213: -894360878800734712
-    second: ClimberAnim_6
+      213: -189823236871469633
+    second: JumperJumpAnim_6
   - first:
-      213: -4188019383155658964
-    second: ClimberAnim_7
+      213: -7567366193381165783
+    second: JumperJumpAnim_7
   - first:
-      213: -8035581745683682468
-    second: ClimberAnim_8
+      213: 3735981631240567635
+    second: JumperJumpAnim_8
   - first:
-      213: -478256913429806346
-    second: ClimberAnim_9
+      213: 1748648046065027657
+    second: JumperJumpAnim_9
+  - first:
+      213: -4859798790420238524
+    second: JumperJumpAnim_10
+  - first:
+      213: 8107360380775813420
+    second: JumperJumpAnim_11
+  - first:
+      213: -7493738736369536686
+    second: JumperJumpAnim_12
+  - first:
+      213: 7151023652688478846
+    second: JumperJumpAnim_13
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -61,7 +73,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -93,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +117,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,11 +125,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ClimberAnim_0
+      name: JumperJumpAnim_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdccef12ac23539479f7ee7665701d4a
-      internalID: -4278718147112708030
+      spriteID: 1946ea234666f684b8ebb95d4a90afea
+      internalID: -4690381310482000702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_1
+      name: JumperJumpAnim_1
       rect:
         serializedVersion: 2
         x: 32
@@ -163,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce3ad4af08d5a3546aee2145e7008ce5
-      internalID: -7864143635946262801
+      spriteID: d05b9009bc296f84488247349d3dfd85
+      internalID: -7264472141601680592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_2
+      name: JumperJumpAnim_2
       rect:
         serializedVersion: 2
         x: 64
@@ -184,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42ad3e25f97446348911ddda7eed2206
-      internalID: -1159655722000513217
+      spriteID: 7c09c5b8c731bb64591f52d064fa6c8f
+      internalID: 5863027015419550390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_3
+      name: JumperJumpAnim_3
       rect:
         serializedVersion: 2
         x: 96
@@ -205,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bff0bd13d5cb4d4394393c7ff9de1c8
-      internalID: -1972204970340941410
+      spriteID: 02e4900bb07a2ab408ae1448e613506d
+      internalID: -1258484419026702408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_4
+      name: JumperJumpAnim_4
       rect:
         serializedVersion: 2
         x: 128
@@ -226,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d9ffd4d8c7d27c4cba9ca1a417bdeda
-      internalID: -1260294731892140550
+      spriteID: 32be0d6c40b724d44b34604c8a0d2e87
+      internalID: -5557102934463811377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_5
+      name: JumperJumpAnim_5
       rect:
         serializedVersion: 2
         x: 160
@@ -247,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f081f6a1edc5b6e41ad994826aefee83
-      internalID: 3568449532738581417
+      spriteID: 4d23edc8a5e456a45b336cd58c4c9570
+      internalID: 143787554096043874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_6
+      name: JumperJumpAnim_6
       rect:
         serializedVersion: 2
         x: 192
@@ -268,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7cd9c051246683448b6ed1ea2608a67
-      internalID: -894360878800734712
+      spriteID: 201b79941c031a84c9d335e80722571a
+      internalID: -189823236871469633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_7
+      name: JumperJumpAnim_7
       rect:
         serializedVersion: 2
         x: 224
@@ -289,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf2f445d628457142873379ed2d79fbf
-      internalID: -4188019383155658964
+      spriteID: a51119afbf64d5e4489e548016a7b09a
+      internalID: -7567366193381165783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_8
+      name: JumperJumpAnim_8
       rect:
         serializedVersion: 2
         x: 256
@@ -310,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae8d79142be640043ad6c124019be9f8
-      internalID: -8035581745683682468
+      spriteID: 5996bdb54c2a1634cbe50c7db6b360be
+      internalID: 3735981631240567635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ClimberAnim_9
+      name: JumperJumpAnim_9
       rect:
         serializedVersion: 2
         x: 288
@@ -331,8 +343,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80954c914f4794348b5462109721fb1f
-      internalID: -478256913429806346
+      spriteID: 0ac2a7072725df048a0b0031ed7f3f42
+      internalID: 1748648046065027657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumperJumpAnim_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c471258d1096148beed9432b530d44
+      internalID: -4859798790420238524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumperJumpAnim_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa37f01d5c91b54ea191468159cf0d2
+      internalID: 8107360380775813420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumperJumpAnim_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d5674e29145cd4390d03dcdd0230ae
+      internalID: -7493738736369536686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumperJumpAnim_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4337cd1a46065a445806b73cb7286733
+      internalID: 7151023652688478846
       vertices: []
       indices: 
       edges: []

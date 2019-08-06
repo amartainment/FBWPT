@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 1e0d777526323444da02ef4954e1fdd7
+guid: 12b90f4c8e0be164bb5a8eed9204e87b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5839377247133105647
-    second: LeafPlatformAnim_0
+      213: 1283270007550410652
+    second: JumperTriggerTransformationAnim_0
   - first:
-      213: 1519143256063192243
-    second: LeafPlatformAnim_1
+      213: 5146102390594064985
+    second: JumperTriggerTransformationAnim_1
   - first:
-      213: 9011265126425390744
-    second: LeafPlatformAnim_2
+      213: 5973322707739664795
+    second: JumperTriggerTransformationAnim_2
   - first:
-      213: 4647698478898335534
-    second: LeafPlatformAnim_3
+      213: 3105862162392974008
+    second: JumperTriggerTransformationAnim_3
   - first:
-      213: 8031138807433979070
-    second: LeafPlatformAnim_4
+      213: 8884038333769958622
+    second: JumperTriggerTransformationAnim_4
   - first:
-      213: 2836786125883581013
-    second: LeafPlatformAnim_5
+      213: -5184601791389987983
+    second: JumperTriggerTransformationAnim_5
   - first:
-      213: 3146967681019538158
-    second: LeafPlatformAnim_6
+      213: 2575819586074911510
+    second: JumperTriggerTransformationAnim_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,7 +104,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LeafPlatformAnim_0
+      name: JumperTriggerTransformationAnim_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acf41595701111c48b06d74f7c780a01
-      internalID: 5839377247133105647
+      spriteID: ec3f93ca3cfb4e54b8adb8acf7f73add
+      internalID: 1283270007550410652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_1
+      name: JumperTriggerTransformationAnim_1
       rect:
         serializedVersion: 2
         x: 32
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24d11d7acfc62c94992a952604917ab5
-      internalID: 1519143256063192243
+      spriteID: fe55c7ddc976b904ca77d0d578b2be60
+      internalID: 5146102390594064985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_2
+      name: JumperTriggerTransformationAnim_2
       rect:
         serializedVersion: 2
         x: 64
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42b32581fbcb5f24480549a19b8f5acc
-      internalID: 9011265126425390744
+      spriteID: 7c4ec6caf79fed740aa3e708f2a39fe7
+      internalID: 5973322707739664795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_3
+      name: JumperTriggerTransformationAnim_3
       rect:
         serializedVersion: 2
         x: 96
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09e73df4043fb7845935f273fedf3fce
-      internalID: 4647698478898335534
+      spriteID: 369f6e45fdef69d4db72a9e97c15ed03
+      internalID: 3105862162392974008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_4
+      name: JumperTriggerTransformationAnim_4
       rect:
         serializedVersion: 2
         x: 128
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 039a70236de9ea745835b58d9e883f40
-      internalID: 8031138807433979070
+      spriteID: 86d7c843342de204781331d7959b0ffd
+      internalID: 8884038333769958622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_5
+      name: JumperTriggerTransformationAnim_5
       rect:
         serializedVersion: 2
         x: 160
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90863e553c7e2574ea51cc8e4d82cac6
-      internalID: 2836786125883581013
+      spriteID: 84102c4836a6a594fa58a6c6d3b8a581
+      internalID: -5184601791389987983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_6
+      name: JumperTriggerTransformationAnim_6
       rect:
         serializedVersion: 2
         x: 192
@@ -259,8 +259,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 216cb28e18f7e1f4ab036f462de90229
-      internalID: 3146967681019538158
+      spriteID: 5903445fff6d9424897a65e5ecd776fe
+      internalID: 2575819586074911510
       vertices: []
       indices: 
       edges: []

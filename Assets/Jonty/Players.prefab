@@ -280,7 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumping: 0
   JumpRB: {fileID: 7237176322297452899}
-  jumpheight: 10
+  jumpheight: 5
   delay: 0.1
   raycastoffset: 0.5
 --- !u!114 &5408317435392696684

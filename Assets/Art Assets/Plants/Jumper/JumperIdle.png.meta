@@ -1,28 +1,40 @@
 fileFormatVersion: 2
-guid: 1e0d777526323444da02ef4954e1fdd7
+guid: f24d2e8036a24eb41bd74e28d9e24870
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5839377247133105647
-    second: LeafPlatformAnim_0
+      213: -5463434352970655995
+    second: JumperIdle_0
   - first:
-      213: 1519143256063192243
-    second: LeafPlatformAnim_1
+      213: -8282860442993579053
+    second: JumperIdle_1
   - first:
-      213: 9011265126425390744
-    second: LeafPlatformAnim_2
+      213: -9064780121411585029
+    second: JumperIdle_2
   - first:
-      213: 4647698478898335534
-    second: LeafPlatformAnim_3
+      213: -1985818636592357950
+    second: JumperIdle_3
   - first:
-      213: 8031138807433979070
-    second: LeafPlatformAnim_4
+      213: 1085557598000908250
+    second: JumperIdle_4
   - first:
-      213: 2836786125883581013
-    second: LeafPlatformAnim_5
+      213: -8646228644567196776
+    second: JumperIdle_5
   - first:
-      213: 3146967681019538158
-    second: LeafPlatformAnim_6
+      213: 4277734734130514730
+    second: JumperIdle_6
+  - first:
+      213: 7217568810748861355
+    second: JumperIdle_7
+  - first:
+      213: -3721102258672738679
+    second: JumperIdle_8
+  - first:
+      213: -6721171161659955201
+    second: JumperIdle_9
+  - first:
+      213: -1133855930990294271
+    second: JumperIdle_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -52,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -84,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,11 +116,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LeafPlatformAnim_0
+      name: JumperIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acf41595701111c48b06d74f7c780a01
-      internalID: 5839377247133105647
+      spriteID: 7885d78b106f86946b18d1a16b5c04db
+      internalID: -5463434352970655995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_1
+      name: JumperIdle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -154,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24d11d7acfc62c94992a952604917ab5
-      internalID: 1519143256063192243
+      spriteID: 8f8541756c6d7014e8f721555afa938a
+      internalID: -8282860442993579053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_2
+      name: JumperIdle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -175,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42b32581fbcb5f24480549a19b8f5acc
-      internalID: 9011265126425390744
+      spriteID: 102817e971d356746bf025f32f78f794
+      internalID: -9064780121411585029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_3
+      name: JumperIdle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -196,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09e73df4043fb7845935f273fedf3fce
-      internalID: 4647698478898335534
+      spriteID: 47a1dce5825310a4baa0efb1982d9ebe
+      internalID: -1985818636592357950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_4
+      name: JumperIdle_4
       rect:
         serializedVersion: 2
         x: 128
@@ -217,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 039a70236de9ea745835b58d9e883f40
-      internalID: 8031138807433979070
+      spriteID: a583d870b6bafd5429ed0728a081804e
+      internalID: 1085557598000908250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_5
+      name: JumperIdle_5
       rect:
         serializedVersion: 2
         x: 160
@@ -238,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90863e553c7e2574ea51cc8e4d82cac6
-      internalID: 2836786125883581013
+      spriteID: eb8688e4153ec8243a737eef788ad079
+      internalID: -8646228644567196776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LeafPlatformAnim_6
+      name: JumperIdle_6
       rect:
         serializedVersion: 2
         x: 192
@@ -259,8 +271,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 216cb28e18f7e1f4ab036f462de90229
-      internalID: 3146967681019538158
+      spriteID: f521c4d53ae93354a9edf6681ff0e22f
+      internalID: 4277734734130514730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumperIdle_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1732c55ef5554bc47840202e0a2bca60
+      internalID: 7217568810748861355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumperIdle_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a1260b405b42445a8f94607ce73ec6
+      internalID: -3721102258672738679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumperIdle_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bead677400a65b846a32f00824011e3e
+      internalID: -6721171161659955201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumperIdle_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23630285e68bc644d8531ddfdd1e8234
+      internalID: -1133855930990294271
       vertices: []
       indices: 
       edges: []
