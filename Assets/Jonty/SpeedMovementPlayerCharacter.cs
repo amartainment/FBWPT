@@ -6,37 +6,37 @@ public class SpeedMovementPlayerCharacter : MonoBehaviour
 {
     public float speed, maxspeed, acceleration;
     bool AccelerateisRunning = false, DecelerateisRunning;
-
-
-    private void OnEnable()
-    {
-        //EventSystem.Movement += IncreaseMovementSpeed;
-        //EventSystem.MovementEnd += ResetCharacter;
-    }
-
+    float Direction;
 
     public void IncreaseMovementSpeed(Vector2 direction)
     {
-        if(direction.x == 0)
+        Direction = direction.x;
+        //Debug.Log("Direction x "+ direction.x);
+        if (direction.x == 0 || (direction.x < 0.3f && direction.x > -0.3f))
+        {
+            
             StartCoroutine(Decelerate());
+        }
 
-        else // if (AccelerateisRunning == false)
-        {            
+        else
+        {
             StartCoroutine(Accelerate(direction));
         }
     }
 
     IEnumerator Accelerate(Vector2 dir)
     {
-        Debug.Log("Accelerating");
+        //Debug.Log("CoroutineAccelerate");
 
         AccelerateisRunning = true;
         DecelerateisRunning = false;
 
-        if (speed > -maxspeed && speed < maxspeed)
-            speed += acceleration*(Mathf.Sign(dir.x));
-        else
-            StartCoroutine(Decelerate());
+            if (Mathf.Sign(dir.x) == -1 && GetComponent<Rigidbody2D>().velocity.x > -maxspeed)
+                speed += acceleration * (Mathf.Sign(dir.x));
+            else if (Mathf.Sign(dir.x) == 1 && GetComponent<Rigidbody2D>().velocity.x < maxspeed)
+                speed += acceleration * (Mathf.Sign(dir.x));
+            else
+            speed = GetComponent<Rigidbody2D>().velocity.x/10 * -acceleration;
 
 
         yield return new WaitForEndOfFrame();
@@ -44,26 +44,29 @@ public class SpeedMovementPlayerCharacter : MonoBehaviour
     }
 
 
-    void ResetCharacter()
-    {
-       StartCoroutine(Decelerate());
-    }
-
     IEnumerator Decelerate()
     {
-        //Debug.Log("Decelerating");
-
         DecelerateisRunning = true;
-        while ((-0.005f > speed || speed > 0.005f) && DecelerateisRunning == true)
+
+        while ((-1.5f > GetComponent<Rigidbody2D>().velocity.x || GetComponent<Rigidbody2D>().velocity.x > 1.5f) && DecelerateisRunning == true)
         {
+            
             //Debug.Log("Decelerating loop");
-            if (speed < 0)
-                speed += acceleration;
-            else if (speed > 0)
-                speed -= acceleration;
-            transform.Translate(speed, 0, 0);
+
+            speed = GetComponent<Rigidbody2D>().velocity.x*acceleration;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0));
+
             yield return new WaitForEndOfFrame();
         }
+
+        if (DecelerateisRunning == true)
+        {
+            //Debug.Log("Stopped");
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
+            GetComponent<Rigidbody2D>().angularVelocity = 0;
+            speed = 0;
+        }
     }
+
 
 }
