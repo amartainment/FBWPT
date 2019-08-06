@@ -34,9 +34,11 @@ public class ClimberBehavior : PlantGrowth
 
     public override void harvest()
     {
-        Destroy(gameObject); 
+        Destroy(gameObject);
         //Instantiate Fruit.
-        Debug.Log("Ready to harvest");
+        Vector3 offset = new Vector3(0, 0.5f, 0);
+        Instantiate(fruitPrefab, transform.position + offset, Quaternion.identity);
+        
 
     }
     override public void changePhase(int number)
@@ -66,6 +68,7 @@ public class ClimberBehavior : PlantGrowth
                 break;
             case 4:
                 //harvest
+
                 break;
 
         }

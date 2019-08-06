@@ -10,6 +10,7 @@ public abstract class PlantGrowth : MonoBehaviour
     public int water = 0;
     public bool wantWater;
     public bool wantFertilizer;
+    public GameObject fruitPrefab;
 
     public int fertilizer = 0;
 

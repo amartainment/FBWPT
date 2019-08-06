@@ -30,8 +30,8 @@ public class InteractHitBox : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (Item.Contains(collision.gameObject) == false && (collision.tag == "water"|| collision.tag == "fertilizer" || collision.tag == "seed"))
+    {//expanded to include fruit in first set
+        if (Item.Contains(collision.gameObject) == false && (collision.tag == "water"|| collision.tag == "fertilizer" || collision.tag == "seed" || collision.tag == "fruit"))
             Item.Add(collision.gameObject);
 
         if (collision.tag == "seeddispenser")

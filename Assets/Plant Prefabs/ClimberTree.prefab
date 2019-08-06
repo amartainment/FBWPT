@@ -49,6 +49,8 @@ MonoBehaviour:
   water: 0
   wantWater: 0
   wantFertilizer: 0
+  fruitPrefab: {fileID: 218756322353277045, guid: 4360905a423e090418b421ab2f908c20,
+    type: 3}
   fertilizer: 0
   waterLimit: 2
   fertilizerLimit: 3
