@@ -10,12 +10,13 @@ public class TimeManager : MonoBehaviour
     public float timer;
     public int timeCounter;
     public Text textElement;
+    public int levelTime;
     //public UnityEvent timeTick;
 
     void Start()
     {
         timer = 0;
-        StartCoroutine(createTimerTick(timeInterval));
+        //StartCoroutine(CreateTimerTick(timeInterval));
     }
 
     // Update is called once per frame
@@ -26,11 +27,11 @@ public class TimeManager : MonoBehaviour
         textElement.text = timeCounter.ToString();
         //Trigger the Time Tick event
         //EventSystem.timeTick();
-
+        
     }
 
   
-    IEnumerator createTimerTick(int timeInterval)
+    IEnumerator CreateTimerTick(int timeInterval)
     {
         while (true)
         {

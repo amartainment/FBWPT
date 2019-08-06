@@ -6,7 +6,9 @@ public class OrderManager : MonoBehaviour
 {
     public int easeDuration;
     private int timeAlive = 0;
-        bool myTimeStarted = false;
+    bool myTimeStarted = false;
+    //public List<Order> newOrderList = new List<Order>();
+    private List<Order> listOfAvailablePlants = new List<Order>();
 
     void OnEnable()
     {
@@ -21,13 +23,13 @@ public class OrderManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //List<Order> newOrderList = new List<Order>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        createOrder();
+        CreateOrder();
     }
 
     void processTimeTick(int a)
@@ -42,12 +44,16 @@ public class OrderManager : MonoBehaviour
         }
     }
 
-    void createOrder()
+    void CreateOrder()
     {
         if(timeAlive%easeDuration==0 && timeAlive !=0)
         {
-            Debug.Log("5");
+            //Debug.Log("5");
             timeAlive = 0;
+            listOfAvailablePlants.Add(new Order("Orange", 40, null));
+            listOfAvailablePlants.Add(new Order("Apple", 40, null));
+            listOfAvailablePlants.Add(new Order("sdf", 40, null));
+            listOfAvailablePlants.Add(new Order("asdasd", 40, null));
             
         }
     }
