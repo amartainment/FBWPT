@@ -11,13 +11,17 @@ public class jumpTriggerPlant : PlantGrowth
 
     private bool jumped = false;
 
+    public Sprite phase2;
+    public Sprite phase3;
+    public Sprite phase1;
+    public Sprite disabledSprite;
+
 
     // Start is called before the first frame update
     void Start()
     {
         waterCycleTimer = waterCycle(cycleDuration);
         StartCoroutine(waterCycleTimer);
-        //StartCoroutine(waterCycle());
     }
 
     // Update is called once per frame
@@ -26,7 +30,7 @@ public class jumpTriggerPlant : PlantGrowth
 
     }
 
-    private void  OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && jump)
         {
@@ -81,9 +85,11 @@ public class jumpTriggerPlant : PlantGrowth
                 break;
             case 2:
                 enablePlantEffects();
+                gameObject.GetComponent<SpriteRenderer>().sprite = phase2;
                 break;
             case 3:
                 enablePlantEffects();
+                gameObject.GetComponent<SpriteRenderer>().sprite = phase3;
                 break;
             case 4:
                 harvest();
@@ -93,11 +99,13 @@ public class jumpTriggerPlant : PlantGrowth
 
     override public void disablePlantEffects()
     {
+        gameObject.GetComponent<SpriteRenderer>().sprite = disabledSprite;
         jump = false;
     }
 
     override public void enablePlantEffects()
     {
+        gameObject.GetComponent<SpriteRenderer>().sprite = phase1;
         jump = true;
     }
     
