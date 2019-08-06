@@ -39,6 +39,12 @@ public class InteractHitBox : MonoBehaviour
 
         if (collision.tag == "burrow")
             transform.parent.GetComponent<InteractPlayerCharacter>().Burrow = collision.gameObject;
+
+        if (collision.tag == "waterdispenser")
+            transform.parent.GetComponent<InteractPlayerCharacter>().Dispenser = collision.gameObject;
+
+        if (collision.tag == "fertilizerdispenser")
+            transform.parent.GetComponent<InteractPlayerCharacter>().Dispenser = collision.gameObject;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

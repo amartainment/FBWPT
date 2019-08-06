@@ -8,6 +8,11 @@ TagManager:
   - fertilizer
   - burrow
   - leaf
+  - seed
+  - dispenser
+  - seeddispenser
+  - waterdispenser
+  - fertilizerdispenser
   layers:
   - Default
   - TransparentFX
