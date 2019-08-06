@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: [water, fertilizer, burrow]
+  tags:
+  - water
+  - fertilizer
+  - burrow
+  - leaf
+  - seed
+  - dispenser
+  - seeddispenser
+  - waterdispenser
+  - fertilizerdispenser
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3359045526626460701}
   - component: {fileID: 118223939603904835}
+  - component: {fileID: 8478683790064700448}
   m_Layer: 0
   m_Name: InteractHitbox
   m_TagString: Untagged
@@ -57,6 +58,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.49909854, y: 0.6668308}
   m_EdgeRadius: 0
+--- !u!114 &8478683790064700448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799210826515819480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5641820acdb9d498955b2daac411b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: []
 --- !u!1 &7072418767644467537
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,8 +88,8 @@ GameObject:
   - component: {fileID: 2415201657079881206}
   - component: {fileID: 1674581760951893333}
   - component: {fileID: 5669655309804268862}
-  - component: {fileID: 5408317435392696684}
   - component: {fileID: -3611015762538390483}
+  - component: {fileID: 9070217392757669879}
   m_Layer: 0
   m_Name: Players
   m_TagString: Player
@@ -251,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af567e2e9af08f4eac51539323d89f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totaldirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1674581760951893333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +281,7 @@ MonoBehaviour:
   speed: 0
   maxspeed: 6
   acceleration: 2.08
+  Direction: 0
 --- !u!114 &5669655309804268862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,21 +296,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumping: 0
   JumpRB: {fileID: 7237176322297452899}
-  jumpheight: 10
+  jumpheight: 5
   delay: 0.1
   raycastoffset: 0.5
---- !u!114 &5408317435392696684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7072418767644467537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce26e84ef0e85a64abd29623954919d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-3611015762538390483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,3 +313,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: W
   dashdistance: 1000
   direction1: 0
+--- !u!114 &9070217392757669879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7072418767644467537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2497c5b0d177064897cd6c07e8b8015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Holding: {fileID: 0}
+  Dispenser: {fileID: 0}
+  Burrow: {fileID: 0}
