@@ -5,28 +5,29 @@ using UnityEngine;
 public abstract class PlantGrowth : MonoBehaviour
 {
     private bool waterReceived;
-
-    public int water = 1;
+    public int cycleDuration;
+    public int punishmentDuration;
+    public int water = 0;
+    public bool wantWater;
+    public bool wantFertilizer;
 
     public int fertilizer = 0;
 
-    public  bool waterRequired;
-
-    private bool fertilizerRequired;
-
-    private bool waterGiven;
-
-    private bool fertilizerGiven;
 
     public int waterLimit = 4;
 
     public int fertilizerLimit = 4;
-
+    public IEnumerator waterCycleTimer;
+    public IEnumerator fertilizerCycleTimer;
+    public IEnumerator punishmentTimer;
+    public IEnumerator fertilizerPunishmentTimer;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        waterCycleTimer = waterCycle(cycleDuration);
+        StartCoroutine(waterCycleTimer);
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public abstract class PlantGrowth : MonoBehaviour
     }
 
 
-    
+
     public virtual void changePhase(int fertilizer)
     {
 
@@ -55,102 +56,110 @@ public abstract class PlantGrowth : MonoBehaviour
 
     public void WaterManager(GameObject wat)
     {
-        if (waterRequired && water < waterLimit)
+        if(water< waterLimit)
         {
-            water++;
-            waterRequired = false;
             Destroy(wat);
-            enablePlantEffects();
-            StartCoroutine("waterCycle");
+             
+            wantWater = false;
+            water++;
 
+            if (water < waterLimit)
+            {
+                StopCoroutine(punishmentTimer);
+                waterCycleTimer = waterCycle(cycleDuration);
+                StartCoroutine(waterCycleTimer);
+            }
+            
         }
 
-        if (water == waterLimit)
+        if ( water == waterLimit)
         {
-            Destroy(wat);
-            fertilizerRequired = true;
+            StopCoroutine(punishmentTimer);
+            fertilizerCycleTimer = fertilizerCycle(cycleDuration);
+            StartCoroutine(fertilizerCycleTimer);
         }
     }
-    
+
     public void fertilizerManager(GameObject fert)
     {
-        if (fertilizerRequired && fertilizer < fertilizerLimit)
+        if(fertilizer < fertilizerLimit)
         {
-            water = 0;
-            enablePlantEffects();
-           
-            fertilizerRequired = false;
-            fertilizer++;
-            changePhase(fertilizer);
             Destroy(fert);
-            StartCoroutine("waterCycle");
+            fertilizer++;
+            wantFertilizer = false;
+            changePhase(fertilizer);
+            StopCoroutine(fertilizerPunishmentTimer);
+            water = 0;
+            waterCycleTimer = waterCycle(cycleDuration);
+            StartCoroutine(waterCycleTimer);
         }
 
-        if (fertilizer == fertilizerLimit)
+        if(fertilizer == fertilizerLimit)
         {
-            Destroy(fert);
             harvest();
         }
     }
 
     public virtual void harvest()
     {
-        
+
     }
 
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag =="water")
+        if (collision.gameObject.tag == "water")
         {
-            waterGiven = true;
-            var obj = collision.gameObject;
-            WaterManager(obj);
+            if(wantWater)
+            {
+                enablePlantEffects();
+                var obj = collision.gameObject;
+                WaterManager(obj);
+            }
         }
 
-        if(collision.gameObject.tag == "fertilizer")
+        if (collision.gameObject.tag == "fertilizer")
         {
-            fertilizerGiven = true;
-            var obj = collision.gameObject;
-            fertilizerManager(obj);
+            if(wantFertilizer)
+            {
+                var obj = collision.gameObject;
+                fertilizerManager(obj);
+            }
         }
     }
 
     public void waterPenalty()
     {
-        if(!waterGiven && waterRequired)
-        {
-            disablePlantEffects();
-            if (water != 0)
-            {
-                water--;
-                
-            }
-        }
-        if(!fertilizerGiven && fertilizerRequired)
-        {
-            //plant effects need to be disabled even if fertilizer count is 0
-            disablePlantEffects();
-            if (fertilizer!=0)
-            {
-                fertilizer--;
-                
-                //call disable plant effects
-                water = 3;
-            }
-        }
+
     }
 
 
-    public IEnumerator waterCycle()
+    public IEnumerator waterCycle(int duration)
     {
-        yield return new WaitForSeconds(5f);
-        waterRequired = true;
-        waterGiven = false;
-        fertilizerGiven = false;
-
-        yield return new WaitForSeconds(5f);
-        waterPenalty();
+        yield return new WaitForSeconds(duration);
+        wantWater = true;
+        punishmentTimer = punishmentCycle(punishmentDuration);
+        StartCoroutine(punishmentTimer);
 
     }
+
+    public IEnumerator punishmentCycle(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if(water>0)
+        { 
+        water--;
+        }
+        disablePlantEffects();
+
+    }
+
+    public IEnumerator fertilizerCycle(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+        wantFertilizer = true;
+        fertilizerPunishmentTimer= punishmentCycle(punishmentDuration);
+        StartCoroutine(fertilizerPunishmentTimer);
+    }
+
 }

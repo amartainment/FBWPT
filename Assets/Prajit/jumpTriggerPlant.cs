@@ -15,8 +15,9 @@ public class jumpTriggerPlant : PlantGrowth
     // Start is called before the first frame update
     void Start()
     {
-        waterRequired = true;
-        StartCoroutine(waterCycle());
+        waterCycleTimer = waterCycle(cycleDuration);
+        StartCoroutine(waterCycleTimer);
+        //StartCoroutine(waterCycle());
     }
 
     // Update is called once per frame
