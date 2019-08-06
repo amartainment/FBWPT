@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MovementPlayerCharacter : MonoBehaviour
 {
+    public Vector3 totaldirection;
     float speed, direction;
 
     public void MoveCharacter(Vector2 Direction)
     {
+        totaldirection = Direction;
+
         direction = Direction.x;
         speed = GetComponent<SpeedMovementPlayerCharacter>().speed;
 

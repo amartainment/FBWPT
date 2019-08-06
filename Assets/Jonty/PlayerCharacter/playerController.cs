@@ -56,11 +56,18 @@ public class playerController : MonoBehaviour
     private void OnInteract()
     {
         Debug.Log("Interact");
+        GetComponent<InteractPlayerCharacter>().Interact();
     }
 
     private void OnDeviceLost()
     {
         Destroy(gameObject);
+    }
+
+    private void OnThrow()
+    {
+        Debug.Log("Throw");
+        GetComponent<ThrowPlayerCharacter>().ThrowHeldItem();
     }
 
     IEnumerator moveCoroutine(Vector2 direction)
