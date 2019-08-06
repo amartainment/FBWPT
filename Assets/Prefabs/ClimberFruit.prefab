@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: ClimberFruit
   orderDeadline: 10
-  orderImage: {fileID: 21300000, guid: 968b13443398b9f4cbb0fbcd9ae342ee, type: 3}
+  orderImage: {fileID: 21300000, guid: 10f2c6760b1c2d4449b4ec22f53a2e4d, type: 3}
   currentTick: 0

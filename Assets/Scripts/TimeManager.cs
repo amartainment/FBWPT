@@ -24,7 +24,7 @@ public class TimeManager : MonoBehaviour
     {
         timer += Time.deltaTime/timeInterval;
         timeCounter = Mathf.RoundToInt(timer);
-        textElement.text = timeCounter.ToString();
+        //textElement.text = timeCounter.ToString();
         //Trigger the Time Tick event
         //EventSystem.timeTick();
         

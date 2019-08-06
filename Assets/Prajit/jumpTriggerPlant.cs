@@ -30,6 +30,7 @@ public class jumpTriggerPlant : PlantGrowth
 
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && jump)
@@ -69,11 +70,15 @@ public class jumpTriggerPlant : PlantGrowth
 
     }
 
+
     public override void harvest()
     {
         Destroy(gameObject);
         //Instantiate Fruit.
-        Debug.Log("Ready to harvest");
+        Vector3 offset = new Vector3(0, 0.5f, 0);
+        Instantiate(fruitPrefab, transform.position + offset, Quaternion.identity);
+
+
 
     }
     override public void changePhase(int number)
