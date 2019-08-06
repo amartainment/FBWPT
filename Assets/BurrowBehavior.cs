@@ -7,6 +7,7 @@ public class BurrowBehavior : MonoBehaviour
     // Start is called before the first frame update
     private bool readyToPlant = true;
     private bool planted = false;
+    private bool plantingCoroutineIsRunning = false;
     
     public Sprite noBurrowSprite;
     Sprite burrowedSprite;
@@ -31,14 +32,17 @@ public class BurrowBehavior : MonoBehaviour
             // currentPlayer = activePlayer.GetComponent<PlayerBehavior>();
             //plant a tree
             GameObject newTree = GameObject.Find("Tree1"); // get from seedBehavior attached to object - seed.treeObject;
-            
-            StartCoroutine(StartPlantingTimer(newTree, 1, activePlayer));
+            if (!plantingCoroutineIsRunning)
+            {
+                StartCoroutine(StartPlantingTimer(newTree, 1, activePlayer));
+                plantingCoroutineIsRunning = true;
+            }
             
             
         }
 
     }
-
+    
     IEnumerator StartPlantingTimer(GameObject newTree, float plantingTime, GameObject activePlayer)
     {
         // currentPlayer = activePlayer.GetComponent<PlayerBehavior>();
@@ -51,6 +55,7 @@ public class BurrowBehavior : MonoBehaviour
         planted = true;
         readyToPlant = false;
         GetComponent<SpriteRenderer>().sprite = noBurrowSprite;
+        plantingCoroutineIsRunning = false;
         //stop working animation in player
 
     }
