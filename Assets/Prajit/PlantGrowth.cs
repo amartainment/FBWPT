@@ -14,6 +14,14 @@ public class PlantGrowth : MonoBehaviour
 
     private bool fertilizerRequired;
 
+    private bool waterGiven;
+
+    private bool fertilizerGiven;
+
+    public int waterLimit = 4;
+
+    public int fertilizerLimit = 3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +37,7 @@ public class PlantGrowth : MonoBehaviour
 
     public void WaterManager(GameObject wat)
     {
-        if (waterRequired && water < 4)
+        if (waterRequired && water < waterLimit)
         {
             water++;
             waterRequired = false;
@@ -38,7 +46,7 @@ public class PlantGrowth : MonoBehaviour
 
         }
 
-        if (water == 4)
+        if (water == waterLimit)
         {
             Destroy(wat);
             fertilizerRequired = true;
@@ -47,15 +55,16 @@ public class PlantGrowth : MonoBehaviour
 
     public void fertilizerManager(GameObject fert)
     {
-        if (fertilizerRequired && fertilizer < 2)
+        if (fertilizerRequired && fertilizer < fertilizerLimit)
         {
             water = 0;
+            fertilizerRequired = false;
             fertilizer++;
             Destroy(fert);
             StartCoroutine("waterCycle");
         }
 
-        if (fertilizer == 3)
+        if (fertilizer == fertilizerLimit)
         {
             Destroy(fert);
             harvest();
@@ -72,23 +81,47 @@ public class PlantGrowth : MonoBehaviour
     {
         if (collision.gameObject.tag =="water")
         {
-            Debug.Log("colliding water");
+            waterGiven = true;
             var obj = collision.gameObject;
             WaterManager(obj);
         }
 
         if(collision.gameObject.tag == "fertilizer")
         {
-            Debug.Log("colliding fertilizer");
+            fertilizerGiven = true;
             var obj = collision.gameObject;
             fertilizerManager(obj);
         }
     }
 
+    public void waterPenalty()
+    {
+        if(!waterGiven && waterRequired)
+        {
+            if (water != 0)
+            {
+                water--;
+            }
+        }
+        if(!fertilizerGiven && fertilizerRequired)
+        {
+            if(fertilizer!=0)
+            {
+                fertilizer--;
+                water = 3;
+            }
+        }
+    }
 
     public IEnumerator waterCycle()
     {
         yield return new WaitForSeconds(5f);
         waterRequired = true;
+        waterGiven = false;
+        fertilizerGiven = false;
+
+        yield return new WaitForSeconds(10f);
+        waterPenalty();
+
     }
 }
