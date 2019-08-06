@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractPlayerCharacter : MonoBehaviour
+public class FertilizerDispenser : MonoBehaviour
 {
+    public GameObject Fertilizer;
     // Start is called before the first frame update
     void Start()
     {

@@ -6,7 +6,7 @@ public class SpeedMovementPlayerCharacter : MonoBehaviour
 {
     public float speed, maxspeed, acceleration;
     bool AccelerateisRunning = false, DecelerateisRunning;
-    float Direction;
+    public float Direction;
 
     public void IncreaseMovementSpeed(Vector2 direction)
     {
