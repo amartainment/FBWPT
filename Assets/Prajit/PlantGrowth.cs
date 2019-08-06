@@ -150,6 +150,10 @@ public abstract class PlantGrowth : MonoBehaviour
         { 
         water--;
         }
+        //set want water to true to enable watering to reactivate
+        wantWater = true;
+        // set want fertilizer to false
+        wantFertilizer = false;
         disablePlantEffects();
 
     }
