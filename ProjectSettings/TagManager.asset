@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: [water, fertilizer, burrow]
+  tags:
+  - water
+  - fertilizer
+  - burrow
+  - leaf
   layers:
   - Default
   - TransparentFX

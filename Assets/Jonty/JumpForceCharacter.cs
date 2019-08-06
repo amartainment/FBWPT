@@ -43,7 +43,9 @@ public class JumpForceCharacter : MonoBehaviour
 
     IEnumerator JumpisRecovering()
     {
+        GetComponent<BoxCollider2D>().isTrigger = true;
         yield return new WaitForSeconds(0.2f);
+        GetComponent<BoxCollider2D>().isTrigger = false;
         jumpisrecovering = false;
     }
 
