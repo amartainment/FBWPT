@@ -13,6 +13,7 @@ TagManager:
   - seeddispenser
   - waterdispenser
   - fertilizerdispenser
+  - fruit
   layers:
   - Default
   - TransparentFX
