@@ -27,6 +27,8 @@ public class JumpPlayerCharacter : MonoBehaviour
             Debug.Log("jumping");
 
             transform.Translate(0, heightofjump * jumpadadjust / 100, 0);
+            
+
 
             jumpadjustmodifier -= -1;
             jumpadadjust -= 8 + jumpadjustmodifier;

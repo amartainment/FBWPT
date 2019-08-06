@@ -8,7 +8,9 @@ public class playerController : MonoBehaviour
     Vector2 horizontalMovement;
     bool canmove = true;
     public float jumpheight;
-    //float moveSpeed = 10f;
+    float direction = 1, velocityx;
+    public static bool stunned;
+
     //Start is called before the first frame update
     void Start()
     {
@@ -21,17 +23,16 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(stunned == false)
         StartCoroutine(moveCoroutine(horizontalMovement));
+
+        velocityx = GetComponent<Rigidbody2D>().velocity.x;
     }
 
     private void OnMove(InputValue value)
     {
-        Debug.Log("OnMoveispassed");
         horizontalMovement = value.Get<Vector2>();
-
-        //EventSystem.Movement(value.Get<Vector2>());
-        //gameObject.GetComponent<MovementPlayerCharacter>().MoveCharacter(value.Get<Vector2>());
-        //gameObject.GetComponent<SpeedMovementPlayerCharacter>().IncreaseMovementSpeed(value.Get<Vector2>());
+        DecideDirection(value.Get<Vector2>().x);
     }
 
 
@@ -42,12 +43,13 @@ public class playerController : MonoBehaviour
     private void OnDash()
     {
         Debug.Log("Dash");
+        gameObject.GetComponent<DashPlayerCharacter>().DashPlayer(direction);
+        
     }
 
     private void OnJump()
     {
         Debug.Log("Jump");
-        //EventSystem.Jump(jumpheight);
         gameObject.GetComponent<JumpForceCharacter>().CharacterJump(jumpheight);
     }
 
@@ -69,7 +71,6 @@ public class playerController : MonoBehaviour
         {
             if (canmove == true)
             {
-                //EventSystem.Movement(direction);
                 gameObject.GetComponent<SpeedMovementPlayerCharacter>().IncreaseMovementSpeed(direction);
                 gameObject.GetComponent<MovementPlayerCharacter>().MoveCharacter(direction);
             }
@@ -82,13 +83,13 @@ public class playerController : MonoBehaviour
         {
             gameObject.GetComponent<SpeedMovementPlayerCharacter>().IncreaseMovementSpeed(direction);
             gameObject.GetComponent<MovementPlayerCharacter>().MoveCharacter(direction);
-
-            //EventSystem.Movement(direction);
         }
+        yield return new WaitForSeconds(0.01f);
+    }
 
-        //Vector3 movement = new Vector3(direction.x, 0) * moveSpeed * Time.deltaTime;
-        //transform.position = transform.position + movement;
-
-        yield return new WaitForEndOfFrame();
+    void DecideDirection(float dir)
+    {
+        if (dir != 0)
+            direction = Mathf.Sign(dir);
     }
 }
