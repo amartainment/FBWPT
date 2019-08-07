@@ -49,9 +49,9 @@ public class jumpTriggerPlant : PlantGrowth
                     jumped = true;
                 }
 
-                else
+                else if(jumped)
                 {
-                    collision.gameObject.SetActive(false);
+                    Destroy(collision.gameObject);
                     if (fertilizer == 2)
                     {
                         StartCoroutine("wakeupTimeStage1");
@@ -62,7 +62,7 @@ public class jumpTriggerPlant : PlantGrowth
                         StartCoroutine("wakeupTimeStage2");
                     }
 
-                    jumped = false;
+
                 }
 
             }
@@ -117,11 +117,13 @@ public class jumpTriggerPlant : PlantGrowth
     public IEnumerator wakeupTimeStage1()
     {
         yield return new WaitForSeconds(5f);
+        jumped = false;
     }
 
     public IEnumerator wakeupTimeStage2()
     {
         yield return new WaitForSeconds(10f);
+        jumped = false;
     }
 
 
