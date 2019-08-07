@@ -65,7 +65,7 @@ public class InteractPlayerCharacter : MonoBehaviour
         else if (Holding != null)
         {
             //TO PLANT SEEDS
-            if (Holding.tag == "seed" && Burrow != null)
+            if (Holding.tag == "seed" && Burrow != null && Burrow.GetComponent<BurrowBehavior>().readyToPlant)
             {
                 PlantSeed(Holding, Burrow);
             }

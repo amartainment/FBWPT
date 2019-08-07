@@ -107,7 +107,7 @@ MonoBehaviour:
   waterCallout: {fileID: 3736625204882724647}
   fertilizerCallout: {fileID: 5280037087725535082}
   fertilizer: 0
-  waterLimit: 3
+  waterLimit: 1
   fertilizerLimit: 3
   highJumpHeight: 12
   jump: 0
