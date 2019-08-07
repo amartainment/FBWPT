@@ -26,8 +26,20 @@ public class ThrowPlayerCharacter : MonoBehaviour
 
         if(HeldItem != null)
         {
-            HeldItem.GetComponent<Rigidbody2D>().AddForce(new Vector2(ThrowDirection.x*10, ThrowDirection.y*10));
+            GameObject ThrownItem;
+            int xdirection = 1;
+            ThrownItem = HeldItem;
+
+            if (ThrowDirection.x < 0)
+                xdirection = -1;
+            else if (ThrowDirection.x == 0)
+                xdirection = 0;
+            
             GetComponent<InteractPlayerCharacter>().Holding = null;
+
+            ThrownItem.GetComponent<Rigidbody2D>().isKinematic = false;
+            ThrownItem.GetComponent<Rigidbody2D>().AddForce(new Vector2(600* xdirection, ((200 * ThrowDirection.y) + 300)));
+            Debug.Log("Threw "+ ThrownItem.name);
         }
     }
 }

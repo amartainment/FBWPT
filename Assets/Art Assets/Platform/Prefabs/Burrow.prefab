@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6982353225612210828}
   - component: {fileID: 5961790910274338600}
   - component: {fileID: 2439588554101924218}
-  - component: {fileID: 289931708}
   - component: {fileID: 289931709}
+  - component: {fileID: 2167677252037307499}
   m_Layer: 0
   m_Name: Burrow
   m_TagString: burrow
@@ -95,33 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aec3f49b630da3419d25da8cc4440e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plant: {fileID: 0}
   noBurrowSprite: {fileID: 21300000, guid: 021e3f89e13bfbd4ab3d75219f5eed8c, type: 3}
---- !u!61 &289931708
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534739032587261734}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2931161}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 3}
-    newSize: {x: 1, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 3.5862322}
-  m_EdgeRadius: 0
 --- !u!61 &289931709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +123,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.616471}
   m_EdgeRadius: 0
+--- !u!114 &2167677252037307499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534739032587261734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bc7127a0eef04181a59ce0f80bc7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SeedType: {fileID: 0}
+  DirtParticle: {fileID: 6251331111651081464, guid: f906ebb2880f6e247ac725015c02b6ac,
+    type: 3}
