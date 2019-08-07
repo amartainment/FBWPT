@@ -15,7 +15,7 @@ public abstract class PlantGrowth : MonoBehaviour
     public GameObject waterCallout;
     public GameObject fertilizerCallout;
 
-
+    public BurrowBehavior allotedBurow;
     public int fertilizer = 0;
 
 
@@ -35,6 +35,12 @@ public abstract class PlantGrowth : MonoBehaviour
         StartCoroutine(waterCycleTimer);
     }
 
+    //set allotted burrow
+    public void setBurrow(GameObject burrow)
+    {
+        allotedBurow = burrow.GetComponent<BurrowBehavior>() ;
+        Debug.Log("burrow set");
+    }
     // Update is called once per frame
     public void Update()
     {
@@ -117,7 +123,9 @@ public abstract class PlantGrowth : MonoBehaviour
 
         if(fertilizer == fertilizerLimit)
         {
+            allotedBurow.HarvestComplete();
             harvest();
+            
         }
     }
 

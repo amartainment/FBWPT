@@ -56,8 +56,8 @@ MonoBehaviour:
   waterCallout: {fileID: 3910449351823632391}
   fertilizerCallout: {fileID: 7380752470922173434}
   fertilizer: 0
-  waterLimit: 2
-  fertilizerLimit: 3
+  waterLimit: 1
+  fertilizerLimit: 1
   fruit: {fileID: 0}
   vineSegment: {fileID: 8164490703820667811, guid: 69d8fae7ff6a7fd459b9b02ab21e0c74,
     type: 3}

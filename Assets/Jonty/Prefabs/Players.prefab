@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5669655309804268862}
   - component: {fileID: -3611015762538390483}
   - component: {fileID: 9070217392757669879}
+  - component: {fileID: 7801156635133705591}
   m_Layer: 0
   m_Name: Players
   m_TagString: Player
@@ -298,7 +299,7 @@ MonoBehaviour:
   JumpRB: {fileID: 7237176322297452899}
   jumpheight: 5
   delay: 0.1
-  raycastoffset: 0.5
+  raycastoffset: 0.44
 --- !u!114 &-3611015762538390483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,3 +329,15 @@ MonoBehaviour:
   Holding: {fileID: 0}
   Dispenser: {fileID: 0}
   Burrow: {fileID: 0}
+--- !u!114 &7801156635133705591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7072418767644467537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4011da565d499a348b7dcc05c1babd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

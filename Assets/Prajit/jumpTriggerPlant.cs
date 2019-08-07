@@ -35,7 +35,7 @@ public class jumpTriggerPlant : PlantGrowth
     {
         if (collision.gameObject.tag == "Player" && jump)
         {
- 
+
             if (fertilizer == 1)
             {
                 collision.gameObject.GetComponent<JumpForceCharacter>().CharacterJump(highJumpHeight);
@@ -113,7 +113,7 @@ public class jumpTriggerPlant : PlantGrowth
         gameObject.GetComponent<SpriteRenderer>().sprite = phase1;
         jump = true;
     }
-    
+
     public IEnumerator wakeupTimeStage1()
     {
         yield return new WaitForSeconds(5f);

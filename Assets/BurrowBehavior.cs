@@ -5,17 +5,18 @@ using UnityEngine;
 public class BurrowBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
-    private bool readyToPlant = true;
+    public bool readyToPlant = true;
     private bool planted = false;
     private bool plantingCoroutineIsRunning = false;
     public GameObject plant;
     public Sprite noBurrowSprite;
-    Sprite burrowedSprite;
+    public Sprite burrowedSprite;
     SeedScript seed;
+    public Vector3 offset;
 
     void Start()
     {
-        burrowedSprite = GetComponent<SpriteRenderer>().sprite;
+        
     }
 
     // Update is called once per frame
@@ -48,10 +49,11 @@ public class BurrowBehavior : MonoBehaviour
         // currentPlayer = activePlayer.GetComponent<PlayerBehavior>();
         // trigger working animation in player
         yield return new WaitForSeconds(plantingTime);
-        Vector3 offset = new Vector3(0, 1.5f, 0);
+        
         Instantiate(newTree, transform.position + offset, Quaternion.identity);
         //set new tree's plot to this instance of burrow
         //newTree.getComponent<TreeBehavior>().setLinkedTile(gameObject);
+        newTree.GetComponent<PlantGrowth>().setBurrow(gameObject);
         planted = true;
         readyToPlant = false;
         GetComponent<SpriteRenderer>().sprite = noBurrowSprite;

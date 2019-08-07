@@ -47,16 +47,23 @@ public class SpeedMovementPlayerCharacter : MonoBehaviour
     IEnumerator Decelerate()
     {
         DecelerateisRunning = true;
-
+        int count;
+        count = 5;
         while ((-1.5f > GetComponent<Rigidbody2D>().velocity.x || GetComponent<Rigidbody2D>().velocity.x > 1.5f) && DecelerateisRunning == true)
         {
-            
+
             //Debug.Log("Decelerating loop");
 
-            speed = GetComponent<Rigidbody2D>().velocity.x*acceleration;
+            speed = GetComponent<Rigidbody2D>().velocity.x * acceleration;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0));
 
             yield return new WaitForEndOfFrame();
+            count--;
+            if (-0.5f > GetComponent<Rigidbody2D>().velocity.x && GetComponent<Rigidbody2D>().velocity.x > 0.5f && Direction == 0)
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                break;
+            }
         }
 
         if (DecelerateisRunning == true)
