@@ -12,6 +12,7 @@ public class BurrowBehavior : MonoBehaviour
     public Sprite noBurrowSprite;
     Sprite burrowedSprite;
     SeedScript seed;
+    public Vector3 offset;
 
     void Start()
     {
@@ -48,7 +49,7 @@ public class BurrowBehavior : MonoBehaviour
         // currentPlayer = activePlayer.GetComponent<PlayerBehavior>();
         // trigger working animation in player
         yield return new WaitForSeconds(plantingTime);
-        Vector3 offset = new Vector3(0, 1.5f, 0);
+        
         Instantiate(newTree, transform.position + offset, Quaternion.identity);
         //set new tree's plot to this instance of burrow
         //newTree.getComponent<TreeBehavior>().setLinkedTile(gameObject);

@@ -153,6 +153,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterCallout
       objectReference: {fileID: 0}
+    - target: {fileID: 3185935434732579761, guid: d76506c483a1ad4469cbf4a02b1ff103,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3185935434732579763, guid: d76506c483a1ad4469cbf4a02b1ff103,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -237,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 2729119304460805434, guid: bef2149bf61ff4b4aa5d3676d4171579,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2729119304460805428, guid: bef2149bf61ff4b4aa5d3676d4171579,
         type: 3}

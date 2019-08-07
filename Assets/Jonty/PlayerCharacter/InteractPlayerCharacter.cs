@@ -80,9 +80,14 @@ public class InteractPlayerCharacter : MonoBehaviour
 
     void CheckforItemsinHitbox()
     {
+        
         Holding = transform.GetChild(0).GetComponent<InteractHitBox>().GetItem();
-        Holding.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        Holding.GetComponent<Rigidbody2D>().angularVelocity = 0;
+
+        if (Holding != null)
+        {
+            Holding.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            Holding.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        }
     }
 
     void PlantSeed(GameObject PlantedSeed, GameObject B)
