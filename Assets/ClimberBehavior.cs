@@ -29,7 +29,7 @@ public class ClimberBehavior : PlantGrowth
     // Update is called once per frame
     void Update()
     {
-        
+        base.Update();
     }
 
     public override void harvest()

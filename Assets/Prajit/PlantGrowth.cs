@@ -12,6 +12,10 @@ public abstract class PlantGrowth : MonoBehaviour
     public bool wantFertilizer;
     public GameObject fruitPrefab;
 
+    public GameObject waterCallout;
+    public GameObject fertilizerCallout;
+
+
     public int fertilizer = 0;
 
 
@@ -32,9 +36,25 @@ public abstract class PlantGrowth : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if(wantWater)
+        {
+            waterCallout.gameObject.SetActive(true);
+        }
+        else
+        {
+            waterCallout.gameObject.SetActive(false);
+        }
+        if(wantFertilizer)
+        {
+            fertilizerCallout.gameObject.SetActive(true);
+        }
+        else
+        {
+            fertilizerCallout.gameObject.SetActive(false);
+        }
+ 
     }
 
 
