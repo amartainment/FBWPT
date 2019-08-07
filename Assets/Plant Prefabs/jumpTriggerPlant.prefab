@@ -109,7 +109,8 @@ MonoBehaviour:
   fertilizer: 0
   waterLimit: 1
   fertilizerLimit: 3
-  highJumpHeight: 12
+
+  highJumpHeight: 7
   jump: 0
   phase2: {fileID: -8097066743225939528, guid: 5bc8b526fb7a18e459179469ca3057ba, type: 3}
   phase3: {fileID: 401993289057952494, guid: 5bc8b526fb7a18e459179469ca3057ba, type: 3}
