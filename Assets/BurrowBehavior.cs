@@ -50,10 +50,10 @@ public class BurrowBehavior : MonoBehaviour
         // trigger working animation in player
         yield return new WaitForSeconds(plantingTime);
         
-        Instantiate(newTree, transform.position + offset, Quaternion.identity);
+        GameObject plantedTree = Instantiate(newTree, transform.position + offset, Quaternion.identity);
         //set new tree's plot to this instance of burrow
         //newTree.getComponent<TreeBehavior>().setLinkedTile(gameObject);
-        newTree.GetComponent<PlantGrowth>().setBurrow(gameObject);
+        plantedTree.GetComponent<PlantGrowth>().setBurrow(gameObject);
         planted = true;
         readyToPlant = false;
         GetComponent<SpriteRenderer>().sprite = noBurrowSprite;
@@ -61,7 +61,7 @@ public class BurrowBehavior : MonoBehaviour
         //stop working animation in player
 
     }
-
+    
     public void HarvestComplete()
     {
         GetComponent<SpriteRenderer>().sprite = burrowedSprite;
