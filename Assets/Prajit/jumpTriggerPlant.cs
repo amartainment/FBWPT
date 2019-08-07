@@ -31,11 +31,11 @@ public class jumpTriggerPlant : PlantGrowth
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player" && jump)
         {
- 
+
             if (fertilizer == 1)
             {
                 collision.gameObject.GetComponent<JumpForceCharacter>().CharacterJump(highJumpHeight);
@@ -51,7 +51,7 @@ public class jumpTriggerPlant : PlantGrowth
 
                 else
                 {
-                    Destroy(collision.gameObject);
+                    collision.gameObject.SetActive(false);
                     if (fertilizer == 2)
                     {
                         StartCoroutine("wakeupTimeStage1");
@@ -113,7 +113,7 @@ public class jumpTriggerPlant : PlantGrowth
         gameObject.GetComponent<SpriteRenderer>().sprite = phase1;
         jump = true;
     }
-    
+
     public IEnumerator wakeupTimeStage1()
     {
         yield return new WaitForSeconds(5f);
@@ -123,4 +123,6 @@ public class jumpTriggerPlant : PlantGrowth
     {
         yield return new WaitForSeconds(10f);
     }
+
+
 }
