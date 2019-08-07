@@ -15,13 +15,16 @@ public class JumpForceCharacter : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D LandedCheck = Physics2D.Raycast((transform.position- new Vector3(0, raycastoffset)), -transform.up,0.1f);
+        RaycastHit2D LandedCheck = Physics2D.Raycast((transform.position- new Vector3(0, raycastoffset)), -transform.up,0.08f);
         Debug.DrawRay((transform.position - new Vector3(0, raycastoffset)), -transform.up);
+
         if (LandedCheck.collider != null && jumpisrecovering == false)
         {
-            
+            if(jumping == true && jumpisrecovering == false && GetComponent<SpeedMovementPlayerCharacter>().Direction == 0)
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
             jumping = false;
-            //Debug.Log("Landed Check " + LandedCheck.distance);
+
         }
         else if (LandedCheck.collider == null)
             jumping = true;
@@ -31,7 +34,6 @@ public class JumpForceCharacter : MonoBehaviour
 
     public void CharacterJump(float jumpheight)
     {
-        //Debug.Log("JumpCall");
 
         if (jumping == false)
         {
