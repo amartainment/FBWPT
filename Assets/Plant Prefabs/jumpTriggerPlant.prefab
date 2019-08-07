@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6350248938323996611}
   - component: {fileID: 6350248938323996608}
   - component: {fileID: 6350248938323996613}
+  - component: {fileID: 475286823003266457}
   m_Layer: 0
   m_Name: jumpTriggerPlant
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6350248938323996609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.37, y: -3.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.4322, y: -3.3094, z: 0}
+  m_LocalScale: {x: 1.1244, y: 1.3787, z: 1}
   m_Children:
   - {fileID: 3736625204882724645}
   - {fileID: 5280037087725535076}
@@ -106,9 +107,9 @@ MonoBehaviour:
   waterCallout: {fileID: 3736625204882724647}
   fertilizerCallout: {fileID: 5280037087725535082}
   fertilizer: 0
-  waterLimit: 3
+  waterLimit: 2
   fertilizerLimit: 3
-  highJumpHeight: 12
+  highJumpHeight: 2
   jump: 0
   phase2: {fileID: -8097066743225939528, guid: 5bc8b526fb7a18e459179469ca3057ba, type: 3}
   phase3: {fileID: 401993289057952494, guid: 5bc8b526fb7a18e459179469ca3057ba, type: 3}
@@ -125,10 +126,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.34749937}
+  m_Offset: {x: -0.011332117, y: 0.22917396}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -139,7 +140,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.055915356}
+  m_Size: {x: 0.38806963, y: 0.07076132}
+  m_EdgeRadius: 0
+--- !u!61 &475286823003266457
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350248938323996609}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.06560348}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.868793}
   m_EdgeRadius: 0
 --- !u!1001 &2300670590356225174
 PrefabInstance:
@@ -152,6 +179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterCallout
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185935434732579761, guid: d76506c483a1ad4469cbf4a02b1ff103,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3185935434732579763, guid: d76506c483a1ad4469cbf4a02b1ff103,
         type: 3}
@@ -237,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 2729119304460805434, guid: bef2149bf61ff4b4aa5d3676d4171579,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2729119304460805428, guid: bef2149bf61ff4b4aa5d3676d4171579,
         type: 3}
