@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OrderManager : MonoBehaviour
 {
@@ -19,9 +20,9 @@ public class OrderManager : MonoBehaviour
     int ordersMissedSoFar = 0;
     public int orderMissLimit;
     public bool triggered = false;
-    //public List<Order> newOrderList = new List<Order>();
 
-    //public GameObject 
+    public Animator monsterAnimator;
+
     void OnEnable()
     {
         EventSystem.timeTick += processTimeTick;
@@ -111,7 +112,7 @@ public class OrderManager : MonoBehaviour
             fruitHit = currentFruit.returnFruitName();
             removeFruitFromList(fruitHit, collision.gameObject);
             Debug.Log("Ate a " + fruitHit.ToString());
-            
+            monsterAnimator.SetInteger("monsterState", 0);
         }
     }
 
@@ -134,12 +135,16 @@ public class OrderManager : MonoBehaviour
         ordersMissedSoFar++;
         if (ordersMissedSoFar == orderMissLimit)
         {
+            monsterAnimator.SetInteger("monsterState", 2);
             Debug.Log("Angry!");
             ordersMissedSoFar = 0;
+            
         }
         else
         {
+            monsterAnimator.SetInteger("monsterState", 1);
             triggered = true;
+
         }
     }
 
