@@ -5,8 +5,9 @@ using UnityEngine;
 public class OrderManager : MonoBehaviour
 {
     public int easeDuration;
-    public List<Order> listOfAvailablePlants = new List<Order>();
-    public List<Order> OrderList = new List<Order>();
+    public List<GameObject> listOfAvailablePlants = new List<GameObject>();
+
+    public List<GameObject> OrderList = new List<GameObject>();
     public GameObject newOrderPrefab;
     private int timeAlive = 0;
     private bool myTimeStarted = false;
@@ -14,17 +15,22 @@ public class OrderManager : MonoBehaviour
     public int ordersThisLevel;
     int orderNumber = 0;
     bool allOrdersPlaced = false;
+    int ordersMissedSoFar = 0;
+    public int orderMissLimit;
+    public bool triggered = false;
     //public List<Order> newOrderList = new List<Order>();
 
     //public GameObject 
     void OnEnable()
     {
         EventSystem.timeTick += processTimeTick;
+        EventSystem.orderMissedEvent += Fireball;
     }
 
     void OnDisable()
     {
         EventSystem.timeTick -= processTimeTick;
+        EventSystem.orderMissedEvent -= Fireball;
     }
 
     // Start is called before the first frame update
@@ -71,12 +77,15 @@ public class OrderManager : MonoBehaviour
                 //Debug.Log("5");
                 Debug.Log(Random.Range(0, listOfAvailablePlants.Count));
                 int newIndex = Random.Range(0, listOfAvailablePlants.Count);
+                GameObject xyz = listOfAvailablePlants[newIndex];
+                GameObject orderToAdd = Instantiate(xyz, new Vector3(500, 500, 500),Quaternion.identity);
+                Debug.Log(orderToAdd.GetComponent<Order>().plantName);
+                orderToAdd.GetComponent<Order>().setOrderManager(gameObject.GetComponent<OrderManager>());
+                OrderList.Add(orderToAdd);
+                
 
-                var xyz = listOfAvailablePlants[newIndex];
-                Debug.Log(xyz.plantName);
-                OrderList.Add(xyz);
                 GameObject orderUI = Instantiate(newOrderPrefab, transform.position, Quaternion.identity);
-                orderUI.GetComponent<OrderItemDisplay>().Prime(xyz);
+                orderUI.GetComponent<OrderItemDisplay>().Prime(orderToAdd.GetComponent<Order>());
                 orderUI.transform.SetParent(GameObject.Find("OrderPanel").transform, false);
                 orderUI.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
@@ -108,13 +117,32 @@ public class OrderManager : MonoBehaviour
     {
         for(int i=0; i<OrderList.Count;i++)
         {
-            if(OrderList[i].plantName == fruitName)
+            if(OrderList[i].GetComponent<Order>().plantName == fruitName)
             {
-                OrderList[i].orderCompleted();
+                OrderList[i].GetComponent<Order>().orderCompleted();
                 OrderList.RemoveAt(i);
                 Destroy(thrownFruit);
+                triggered = false;
                 break;
-            }
+                            }
         }
+    }
+    public void Fireball(int a)
+    {
+        ordersMissedSoFar++;
+        if (ordersMissedSoFar == orderMissLimit)
+        {
+            Debug.Log("Angry!");
+            ordersMissedSoFar = 0;
+        }
+        else
+        {
+            triggered = true;
+        }
+    }
+
+    public void removeFruitAt(GameObject listObject)
+    {
+        OrderList.Remove(listObject);
     }
 }

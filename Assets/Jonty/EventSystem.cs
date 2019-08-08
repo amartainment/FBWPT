@@ -9,6 +9,6 @@ public class EventSystem
     //public static System.Action<KeyCode> MovementEnd;
     //public static System.Action<float> Jump;
     public static System.Action<int> timeTick;
+    public static System.Action<int> orderMissedEvent;
 
-    
 }
