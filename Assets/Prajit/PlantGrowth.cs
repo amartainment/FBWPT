@@ -63,6 +63,16 @@ public abstract class PlantGrowth : MonoBehaviour
  
     }
 
+    public void OnEnable()
+    {
+        EventSystem.bossPissed += bossDamage;
+    }
+
+    public void OnDisable()
+    {
+        EventSystem.bossPissed -= bossDamage;
+    }
+
 
 
     public virtual void changePhase(int fertilizer)
@@ -199,4 +209,16 @@ public abstract class PlantGrowth : MonoBehaviour
         StartCoroutine(fertilizerPunishmentTimer);
     }
 
+    public void bossDamage(int a)
+    {
+        if (water > 0)
+        {
+            water--;
+        }
+        //set want water to true to enable watering to reactivate
+        wantWater = true;
+        // set want fertilizer to false
+        wantFertilizer = false;
+        disablePlantEffects();
+    }
 }

@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantName: VenusFruit
-  orderDeadline: 40
+  orderDeadline: 250
   orderImage: {fileID: 21300000, guid: 9eadb031b7d82de4f8e5c556a7b3a57c, type: 3}
   currentTick: 0

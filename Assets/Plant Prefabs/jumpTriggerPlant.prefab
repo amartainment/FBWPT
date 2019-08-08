@@ -138,7 +138,7 @@ MonoBehaviour:
   fertilizerCallout: {fileID: 0}
   allotedBurow: {fileID: 0}
   fertilizer: 0
-  waterLimit: 1
+  waterLimit: 2
   fertilizerLimit: 4
   highJumpHeight: 7
   jump: 0

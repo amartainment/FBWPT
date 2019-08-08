@@ -73,8 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3684e65d195db4599a84cb3f8adc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cycleDuration: 5
-  punishmentDuration: 5
+  cycleDuration: 10
+  punishmentDuration: 10
   water: 0
   wantWater: 0
   wantFertilizer: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   fertilizerCallout: {fileID: 7380752470922173434}
   allotedBurow: {fileID: 0}
   fertilizer: 0
-  waterLimit: 1
+  waterLimit: 2
   fertilizerLimit: 4
   saplingPrefab: {fileID: 1017674026356700015, guid: d419d5ac35319494b9ce10a5b8b2700f,
     type: 3}

@@ -38,6 +38,7 @@ public class OrderManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        orderCreationAndAddition();
         //List<Order> newOrderList = new List<Order>();
         /*listOfAvailablePlants.Add(new Order("Orange", 40, null));
         listOfAvailablePlants.Add(new Order("Apple", 40, null));
@@ -77,31 +78,36 @@ public class OrderManager : MonoBehaviour
             if (timeAlive % easeDuration == 0 && timeAlive != 0)
             {
                 //Debug.Log("5");
-                Debug.Log(Random.Range(0, listOfAvailablePlants.Count));
-                
-                int newIndex = Random.Range(0, listOfAvailablePlants.Count);
-                GameObject xyz = listOfAvailablePlants[newIndex];
-                GameObject orderToAdd = Instantiate(xyz, new Vector3(500, 500, 500),Quaternion.identity);
-                Debug.Log(orderToAdd.GetComponent<Order>().plantName);
-
-                orderToAdd.GetComponent<Order>().setOrderManager(gameObject.GetComponent<OrderManager>());
-                OrderList.Add(orderToAdd);
-                
-                GameObject orderUI = Instantiate(newOrderPrefab, transform.position, Quaternion.identity);
-                orderUI.GetComponent<OrderItemDisplay>().Prime(orderToAdd.GetComponent<Order>());
-                orderUI.transform.SetParent(GameObject.Find("OrderPanel").transform, false);
-                orderUI.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-
-
-
-                timeAlive = 0;
-                orderNumber++;
+                orderCreationAndAddition();
             }
             if(orderNumber == ordersThisLevel)
             {
                 allOrdersPlaced = true;
             }
         }
+    }
+
+    void orderCreationAndAddition()
+    {
+        Debug.Log(Random.Range(0, listOfAvailablePlants.Count));
+
+        int newIndex = Random.Range(0, listOfAvailablePlants.Count);
+        GameObject xyz = listOfAvailablePlants[newIndex];
+        GameObject orderToAdd = Instantiate(xyz, new Vector3(500, 500, 500), Quaternion.identity);
+        Debug.Log(orderToAdd.GetComponent<Order>().plantName);
+
+        orderToAdd.GetComponent<Order>().setOrderManager(gameObject.GetComponent<OrderManager>());
+        OrderList.Add(orderToAdd);
+
+        GameObject orderUI = Instantiate(newOrderPrefab, transform.position, Quaternion.identity);
+        orderUI.GetComponent<OrderItemDisplay>().Prime(orderToAdd.GetComponent<Order>());
+        orderUI.transform.SetParent(GameObject.Find("OrderPanel").transform, false);
+        orderUI.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+
+
+
+        timeAlive = 0;
+        orderNumber++;
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -139,7 +145,7 @@ public class OrderManager : MonoBehaviour
             triggered = false;
             Debug.Log("Angry!");
             ordersMissedSoFar = 0;
-            
+            EventSystem.bossPissed(1);
         }
         else
         {
