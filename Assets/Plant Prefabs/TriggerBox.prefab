@@ -185,7 +185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.3501034, y: 1.6851048}
+  m_Size: {x: 4.3501034, y: 1.7}
   m_EdgeRadius: 0
 --- !u!114 &4672159378980348504
 MonoBehaviour:
@@ -273,6 +273,21 @@ PrefabInstance:
       propertyPath: _venusTrigger
       value: 
       objectReference: {fileID: 4672159378980348504}
+    - target: {fileID: -6281545855037874137, guid: b556304ef3d701b41bb5979a4ec9af2d,
+        type: 3}
+      propertyPath: waterLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6281545855037874137, guid: b556304ef3d701b41bb5979a4ec9af2d,
+        type: 3}
+      propertyPath: fertilizerLimit
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6281545855037874137, guid: b556304ef3d701b41bb5979a4ec9af2d,
+        type: 3}
+      propertyPath: triggerBox
+      value: 
+      objectReference: {fileID: 6735927469723884653}
     - target: {fileID: 5751386732162828465, guid: b556304ef3d701b41bb5979a4ec9af2d,
         type: 3}
       propertyPath: m_Enabled
