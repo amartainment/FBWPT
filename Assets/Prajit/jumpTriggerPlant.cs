@@ -20,14 +20,21 @@ public class jumpTriggerPlant : PlantGrowth
     public IEnumerator wakeupStage2Timer;
 
     public Animator jumper;
+    public GameObject saplingPrefab;
+    GameObject sapling;
+
+    public SpriteRenderer item;
+    public GameObject actualPlant;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        actualPlant.SetActive(false);
         wakeupStage2Timer = wakeupTimeStage2(cycleDuration * 2);
         waterCycleTimer = waterCycle(cycleDuration);
         StartCoroutine(waterCycleTimer);
+        instantiateSapling();
     }
 
     // Update is called once per frame
@@ -39,6 +46,12 @@ public class jumpTriggerPlant : PlantGrowth
 
     }
 
+    void instantiateSapling()
+    {
+        sapling = Instantiate(saplingPrefab, transform.position, Quaternion.identity);
+        sapling.transform.parent = gameObject.transform;
+
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -104,7 +117,9 @@ public class jumpTriggerPlant : PlantGrowth
         switch (number)
         {
             case 1:
-                 jumper.SetBool("jumpingBool", true);
+                sapling.SetActive(false);
+                actualPlant.SetActive(true);
+               jumper.SetBool("jumpingBool", true);
                 enablePlantEffects();
 
                 break;
@@ -127,6 +142,7 @@ public class jumpTriggerPlant : PlantGrowth
     override public void disablePlantEffects()
     {
         //gameObject.GetComponent<SpriteRenderer>().sprite = disabledSprite;
+        item.color = new Color32(126, 100, 8, 255);
         jump = false;
         jumped = false;
     }
@@ -134,6 +150,7 @@ public class jumpTriggerPlant : PlantGrowth
     override public void enablePlantEffects()
     {
        // gameObject.GetComponent<SpriteRenderer>().sprite = phase1;
+       item.color = new Color32(255, 255, 255, 255);    
         jump = true;
         jumped = false;
     }
@@ -142,7 +159,7 @@ public class jumpTriggerPlant : PlantGrowth
     {
         yield return new WaitForSeconds(duration);
         jumped = false;
-        jumper.SetBool("triggerEating", false);
+        
 
     }
 
@@ -159,5 +176,7 @@ public class jumpTriggerPlant : PlantGrowth
         Debug.Log("I m in kill timer");
         yield return new WaitForSeconds(0.5f);
         _player.GetComponent<playerController>().DieAndRespawn();
+        jumped = false;
+        jumper.SetBool("triggerEating", false);
     }
 }
