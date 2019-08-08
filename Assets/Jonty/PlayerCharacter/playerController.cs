@@ -53,7 +53,7 @@ public class playerController : MonoBehaviour
 
     private void OnJoin()
     {
-        SceneManager.LoadScene(1);   
+       // SceneManager.LoadScene(1);   
     }
     private void OnDash()
     {
