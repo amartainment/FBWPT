@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6350248938323996609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.37, y: -3.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.507, y: -2.773, z: 0}
+  m_LocalScale: {x: 1.2735008, y: 1.6930575, z: 1.196}
   m_Children:
   - {fileID: 3736625204882724645}
   - {fileID: 5280037087725535076}
@@ -106,10 +106,10 @@ MonoBehaviour:
     type: 3}
   waterCallout: {fileID: 3736625204882724647}
   fertilizerCallout: {fileID: 5280037087725535082}
+  allotedBurow: {fileID: 0}
   fertilizer: 0
   waterLimit: 1
-  fertilizerLimit: 3
-
+  fertilizerLimit: 4
   highJumpHeight: 7
   jump: 0
   phase2: {fileID: -8097066743225939528, guid: 5bc8b526fb7a18e459179469ca3057ba, type: 3}
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.06560348}
+  m_Offset: {x: 0, y: -0.109143496}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -141,7 +141,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.868793}
+  m_Size: {x: 1, y: 0.781713}
   m_EdgeRadius: 0
 --- !u!61 &8287852473509054847
 BoxCollider2D:

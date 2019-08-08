@@ -16,10 +16,13 @@ public class jumpTriggerPlant : PlantGrowth
     public Sprite phase1;
     public Sprite disabledSprite;
 
+    public IEnumerator wakeupStage1Timer;
+    public IEnumerator wakeupStage2Timer;
 
     // Start is called before the first frame update
     void Start()
     {
+        wakeupStage2Timer = wakeupTimeStage2(cycleDuration * 2);
         waterCycleTimer = waterCycle(cycleDuration);
         StartCoroutine(waterCycleTimer);
     }
@@ -54,12 +57,18 @@ public class jumpTriggerPlant : PlantGrowth
                     collision.gameObject.GetComponent<playerController>().DieAndRespawn();
                     if (fertilizer == 2)
                     {
-                        StartCoroutine("wakeupTimeStage1");
+                        Debug.Log("i m in fertilizer");
+                        // StartCoroutine("wakeupTimeStage1");
+                        StopCoroutine(wakeupStage2Timer);
+                        wakeupStage1Timer = wakeupTimeStage1(cycleDuration);
+                        StartCoroutine(wakeupStage1Timer);
                     }
 
                     else if (fertilizer == 3)
                     {
-                        StartCoroutine("wakeupTimeStage2");
+                        StopCoroutine(wakeupStage1Timer);
+                        wakeupStage2Timer = wakeupTimeStage2(cycleDuration*2);
+                        StartCoroutine(wakeupStage2Timer);
                     }
 
 
@@ -97,7 +106,7 @@ public class jumpTriggerPlant : PlantGrowth
                 gameObject.GetComponent<SpriteRenderer>().sprite = phase3;
                 break;
             case 4:
-                harvest();
+               // harvest();
                 break;
         }
     }
@@ -106,24 +115,29 @@ public class jumpTriggerPlant : PlantGrowth
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = disabledSprite;
         jump = false;
+        jumped = false;
     }
 
     override public void enablePlantEffects()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = phase1;
         jump = true;
-    }
-
-    public IEnumerator wakeupTimeStage1()
-    {
-        yield return new WaitForSeconds(5f);
         jumped = false;
     }
 
-    public IEnumerator wakeupTimeStage2()
+    public IEnumerator wakeupTimeStage1(int duration)
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(duration);
         jumped = false;
+
+    }
+
+    public IEnumerator wakeupTimeStage2(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        jumped = false;
+
     }
 
 

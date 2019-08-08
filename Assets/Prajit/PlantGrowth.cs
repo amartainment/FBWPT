@@ -123,7 +123,10 @@ public abstract class PlantGrowth : MonoBehaviour
 
         if(fertilizer == fertilizerLimit)
         {
-            allotedBurow.HarvestComplete();
+            if (allotedBurow != null)
+            {
+                allotedBurow.HarvestComplete();
+            }
             harvest();
             
         }
