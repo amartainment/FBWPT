@@ -132,5 +132,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44002b9339795bb4e9df154dfc8a3f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Plant: {fileID: 6350248938323996609, guid: c04b4dd568cf65644abbe802114e1291, type: 3}
+  Plant: {fileID: 190302618600979975, guid: d6f78d98e04eee842b49aa238a9220cf, type: 3}
   collided: 0

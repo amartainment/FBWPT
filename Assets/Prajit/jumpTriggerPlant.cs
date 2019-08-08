@@ -19,6 +19,9 @@ public class jumpTriggerPlant : PlantGrowth
     public IEnumerator wakeupStage1Timer;
     public IEnumerator wakeupStage2Timer;
 
+    public Animator jumper;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,9 @@ public class jumpTriggerPlant : PlantGrowth
     void Update()
     {
         base.Update();
+
+
+
     }
 
 
@@ -54,7 +60,10 @@ public class jumpTriggerPlant : PlantGrowth
 
                 else if(jumped)
                 {
-                    collision.gameObject.GetComponent<playerController>().DieAndRespawn();
+                    jumper.SetBool("triggerEating", true);
+                    StartCoroutine("killWait",collision.gameObject);
+ 
+
                     if (fertilizer == 2)
                     {
                         Debug.Log("i m in fertilizer");
@@ -95,15 +104,19 @@ public class jumpTriggerPlant : PlantGrowth
         switch (number)
         {
             case 1:
+                 jumper.SetBool("jumpingBool", true);
                 enablePlantEffects();
+
                 break;
             case 2:
+                jumper.SetBool("triggerState",true);
+                jumper.SetBool("trigger", true);
                 enablePlantEffects();
-                gameObject.GetComponent<SpriteRenderer>().sprite = phase2;
+               // gameObject.GetComponent<SpriteRenderer>().sprite = phase2;
                 break;
             case 3:
                 enablePlantEffects();
-                gameObject.GetComponent<SpriteRenderer>().sprite = phase3;
+               // gameObject.GetComponent<SpriteRenderer>().sprite = phase3;
                 break;
             case 4:
                // harvest();
@@ -113,14 +126,14 @@ public class jumpTriggerPlant : PlantGrowth
 
     override public void disablePlantEffects()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = disabledSprite;
+        //gameObject.GetComponent<SpriteRenderer>().sprite = disabledSprite;
         jump = false;
         jumped = false;
     }
 
     override public void enablePlantEffects()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = phase1;
+       // gameObject.GetComponent<SpriteRenderer>().sprite = phase1;
         jump = true;
         jumped = false;
     }
@@ -129,6 +142,7 @@ public class jumpTriggerPlant : PlantGrowth
     {
         yield return new WaitForSeconds(duration);
         jumped = false;
+        jumper.SetBool("triggerEating", false);
 
     }
 
@@ -137,8 +151,13 @@ public class jumpTriggerPlant : PlantGrowth
         yield return new WaitForSeconds(duration);
 
         jumped = false;
-
+        jumper.SetBool("triggerEating", false);
     }
 
-
+    public IEnumerator killWait(GameObject _player)
+    {
+        Debug.Log("I m in kill timer");
+        yield return new WaitForSeconds(0.5f);
+        _player.GetComponent<playerController>().DieAndRespawn();
+    }
 }
