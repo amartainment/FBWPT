@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6028455960313266965}
   - component: {fileID: 6028455960313266963}
   - component: {fileID: 6028455960313266962}
+  - component: {fileID: -9014455755020938703}
   m_Layer: 0
   m_Name: WaterBag
   m_TagString: water
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6028455960313266960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.08, y: -1.72, z: 0}
-  m_LocalScale: {x: 4.62, y: 3.2, z: 4.1948}
+  m_LocalScale: {x: 1.1, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -5151533754777900160, guid: 4c497f49ccbdffe40bd061271aa589aa,
+    type: 3}
   m_Color: {r: 0.6552599, g: 0.8938669, b: 0.8962264, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,6 +118,20 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.001008183, y: -0.00031374846}
-  m_Size: {x: 0.16572139, y: 0.14765812}
+  m_Offset: {x: -0.048250023, y: -0.04199739}
+  m_Size: {x: 0.49211994, y: 0.46445608}
   m_Direction: 1
+--- !u!114 &-9014455755020938703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028455960313266960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72052176b5eaa24f97fa54508637221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaterParticles: {fileID: 6621963449832584485, guid: b69bfcdf6d4fcf64bbb50fca50236907,
+    type: 3}

@@ -38,7 +38,11 @@ public class ThrowPlayerCharacter : MonoBehaviour
             GetComponent<InteractPlayerCharacter>().Holding = null;
 
             ThrownItem.GetComponent<Rigidbody2D>().isKinematic = false;
-            ThrownItem.GetComponent<Rigidbody2D>().AddForce(new Vector2(600* xdirection, ((200 * ThrowDirection.y) + 300)));
+            ThrownItem.GetComponent<Collider2D>().enabled = true;
+
+            ThrownItem.GetComponent<Rigidbody2D>().AddForce((ThrownItem.transform.position - transform.position) *1000);
+            //ThrownItem.GetComponent<Rigidbody2D>().AddForce(new Vector2(600* xdirection, ((200 * ThrowDirection.y) + 300)));
+
             Debug.Log("Threw "+ ThrownItem.name);
         }
     }

@@ -142,5 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b452cfb5b058af4dbd3edecdc0b9c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tankhaswater: 1
   WaterBag: {fileID: 6028455960313266960, guid: 2bc9513a46f66524b9f9772e3feebdef,
+    type: 3}
+  WaterParticles: {fileID: 6621963449832584485, guid: b69bfcdf6d4fcf64bbb50fca50236907,
     type: 3}

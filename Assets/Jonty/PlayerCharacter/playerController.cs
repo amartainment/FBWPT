@@ -64,7 +64,7 @@ public class playerController : MonoBehaviour
 
     private void OnJump()
     {
-        Debug.Log("Jump");
+        //Debug.Log("Jump");
         gameObject.GetComponent<JumpForceCharacter>().CharacterJump(jumpheight);
     }
 
