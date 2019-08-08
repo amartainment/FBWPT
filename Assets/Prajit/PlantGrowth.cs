@@ -138,7 +138,7 @@ public abstract class PlantGrowth : MonoBehaviour
     }
 
 
-    public void OnTriggerStay2D(Collider2D collision)
+    public virtual void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "water")
         {
@@ -146,6 +146,7 @@ public abstract class PlantGrowth : MonoBehaviour
             {
                 enablePlantEffects();
                 var obj = collision.gameObject;
+                collision.GetComponent<WaterBagScript>().WaterthePlant(gameObject);
                 WaterManager(obj);
             }
         }

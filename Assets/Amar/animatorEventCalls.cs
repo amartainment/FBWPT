@@ -1,22 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-    
 
-public class controlSystemTests : MonoBehaviour
+public class animatorEventCalls : MonoBehaviour
 {
+    public WheezingPlantBehavior myMaster;
     // Start is called before the first frame update
     void Start()
     {
-
-               
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       //code for manual joining;
-      
+        
+    }
+
+    public void triggerMasterGasRelease()
+    {
+        myMaster.releaseGas();
     }
 }

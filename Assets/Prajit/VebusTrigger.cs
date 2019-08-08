@@ -26,13 +26,20 @@ public class VebusTrigger : MonoBehaviour
         {
             playerSpotted = true;
             _player =  collision.gameObject;
+            //_venusFlyTrap.attack();
+
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        playerSpotted = true;
-        _player = collision.gameObject;
+        if (collision.gameObject.tag == "Player")
+        {
+            playerSpotted = true;
+            _player = collision.gameObject;
+           // _venusFlyTrap.attack();
+
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

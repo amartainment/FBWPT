@@ -5,11 +5,15 @@ using UnityEngine;
 public class VenusFlyTrap : PlantGrowth
 {
     public VebusTrigger _venusTrigger;
-    GameObject _player;
+    public BoxCollider2D triggerBox;
+    
     private bool enableEffects;
     Vector3 originalPosition;
     Vector3 attackDirection;
     private bool timerRunning;
+    private bool waitTimeIsRunning;
+
+    GameObject _player;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +26,7 @@ public class VenusFlyTrap : PlantGrowth
     void Update()
     {
         base.Update();
-        if(enableEffects)
+        if (enableEffects && !waitTimeIsRunning)
         {
             getPlayer();
             lookAtPlayer();
@@ -47,9 +51,11 @@ public class VenusFlyTrap : PlantGrowth
                 break;
             case 2:
                 enablePlantEffects();
+                triggerBox.size = new Vector2(5.5f, 1.7f);
                 break;
             case 3:
                 enablePlantEffects();
+                triggerBox.size = new Vector2(6.5f, 1.7f);
                 break;
             case 4:
                 harvest();
@@ -59,13 +65,16 @@ public class VenusFlyTrap : PlantGrowth
 
     override public void disablePlantEffects()
     {
-
+        enableEffects = false;
     }
 
     override public void enablePlantEffects()
     {
         Debug.Log("plant effects enabled");
-        enableEffects = true;
+        if (fertilizer > 0)
+        {
+            enableEffects = true;
+        }
     }
 
     public void lookAtPlayer()
@@ -75,16 +84,9 @@ public class VenusFlyTrap : PlantGrowth
         {
 
             attackDirection = _player.transform.position - transform.position;
-            GetComponent<Rigidbody2D>().MovePosition(transform.position + Vector3.Normalize(attackDirection) * 0.2f);
-            //transform.position = transform.position + Vector3.Normalize(attackDirection) * 0.2f;
-            //originalPosition = transform.position + Vector3.Normalize(attackDirection) * 0.2f;
-            if (!timerRunning)
-            {
-                StartCoroutine("snapBack");
-            }
-            Debug.Log("attack direction" + attackDirection);
-            Debug.Log("gameobject" + gameObject);
-            Debug.Log("player" + _player);
+            StartCoroutine("waitTimer");
+
+
         }
 
         else
@@ -111,4 +113,52 @@ public class VenusFlyTrap : PlantGrowth
         timerRunning = false;
 
     }
+
+    IEnumerator waitTimer()
+    {
+        waitTimeIsRunning = true;
+        Debug.Log("i m in wait timer");
+        //add waiting animation here
+        yield return new WaitForSeconds(0.03f);
+        GetComponent<Rigidbody2D>().MovePosition(transform.position + Vector3.Normalize(attackDirection) * 0.2f);
+
+
+        //transform.position = transform.position + Vector3.Normalize(attackDirection) * 0.2f;
+        //originalPosition = transform.position + Vector3.Normalize(attackDirection) * 0.2f;
+        if (!timerRunning)
+        {
+            StartCoroutine("snapBack");
+        }
+        Debug.Log("attack direction" + attackDirection);
+        Debug.Log("gameobject" + gameObject);
+        Debug.Log("player" + _player);
+        waitTimeIsRunning = false;
+    }
+
+    public void attack()
+    {
+
+    }
+
+    //override public void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "water")
+    //    {
+    //        if (wantWater)
+    //        {
+    //            enablePlantEffects();
+    //            var obj = collision.gameObject;
+    //            WaterManager(obj);
+    //        }
+    //    }
+
+    //    if (collision.gameObject.tag == "bee")
+    //    {
+    //        if (wantFertilizer)
+    //        {
+    //            var obj = collision.gameObject;
+    //            fertilizerManager(obj);
+    //        }
+    //    }
+    //}
 }
