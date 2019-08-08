@@ -110,8 +110,8 @@ public class WheezingPlantBehavior : PlantGrowth
         gasCoroutineRunning = true;
         for (int i = 0; i < gasLevel; i++)
         {
-            GameObject newGas = Instantiate(gasPrefab, transform.position + new Vector3( (i+1) + 0.1f, 0.3f,0),Quaternion.identity);
-            GameObject newGas2 = Instantiate(gasPrefab, transform.position + new Vector3(-((i + 1) + 0.1f), 0.3f, 0), Quaternion.identity);
+            GameObject newGas = Instantiate(gasPrefab, transform.position + new Vector3( (i+1) + 0.1f, 0.1f,0),Quaternion.identity);
+            GameObject newGas2 = Instantiate(gasPrefab, transform.position + new Vector3(-((i + 1) + 0.1f), 0.1f, 0), Quaternion.identity);
             yield return new WaitForSeconds(duration);
             
 
