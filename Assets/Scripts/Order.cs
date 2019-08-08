@@ -8,7 +8,7 @@ public class Order : MonoBehaviour
     public string plantName;
     public int orderDeadline;
     public Sprite orderImage;
-    public int currentTick;
+    public int currentTick = 0;
      GameObject UIElement;
 
     public Order(string name, int deadline, Sprite image)
@@ -16,6 +16,16 @@ public class Order : MonoBehaviour
         plantName = name;
         orderDeadline = deadline;
         orderImage = image;
+    }
+
+    void OnEnable()
+    {
+        EventSystem.timeTick += orderTimeTick;
+    }
+
+    void OnDisable()
+    {
+        EventSystem.timeTick -= orderTimeTick;
     }
     void Start()
     {
@@ -38,7 +48,11 @@ public class Order : MonoBehaviour
         Destroy(UIElement);
     }
 
-    
+    void orderTimeTick(int a)
+    {
+        
+    }
+
     //add a timer, create an event called orderNotFulFilled
     //listen orderNotFulfilled in Boss/Plants/etc.
 }

@@ -11,8 +11,11 @@ public class OrderManager : MonoBehaviour
     private int timeAlive = 0;
     private bool myTimeStarted = false;
     private string fruitHit;
+    public int ordersThisLevel;
+    int orderNumber = 0;
+    bool allOrdersPlaced = false;
     //public List<Order> newOrderList = new List<Order>();
-    
+
     //public GameObject 
     void OnEnable()
     {
@@ -21,7 +24,7 @@ public class OrderManager : MonoBehaviour
 
     void OnDisable()
     {
-
+        EventSystem.timeTick -= processTimeTick;
     }
 
     // Start is called before the first frame update
@@ -37,7 +40,10 @@ public class OrderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CreateOrder();
+        if (!allOrdersPlaced)
+        {
+            CreateOrder();
+        }
     }
 
     void processTimeTick(int a)
@@ -46,7 +52,8 @@ public class OrderManager : MonoBehaviour
         {
             timeAlive = 0;
             myTimeStarted = true;
-        } else
+        }
+        else
         {
             timeAlive++;
         }
@@ -54,25 +61,34 @@ public class OrderManager : MonoBehaviour
 
     void CreateOrder()
     {
-        if(timeAlive%easeDuration==0 && timeAlive !=0)
+        
+         if(orderNumber<ordersThisLevel)   
+       //if (OrderList.Count < ordersThisLevel-1)
         {
-            //Debug.Log("5");
-            Debug.Log(Random.Range(0, listOfAvailablePlants.Count));
-            int newIndex = Random.Range(0, listOfAvailablePlants.Count);
-            
-            var xyz = listOfAvailablePlants[newIndex];
-            Debug.Log(xyz.plantName);
-            OrderList.Add(xyz);
-            GameObject orderUI =  Instantiate(newOrderPrefab, transform.position, Quaternion.identity);
-            orderUI.GetComponent<OrderItemDisplay>().Prime(xyz);
-            orderUI.transform.SetParent(GameObject.Find("OrderPanel").transform, false);
-            orderUI.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+
+            if (timeAlive % easeDuration == 0 && timeAlive != 0)
+            {
+                //Debug.Log("5");
+                Debug.Log(Random.Range(0, listOfAvailablePlants.Count));
+                int newIndex = Random.Range(0, listOfAvailablePlants.Count);
+
+                var xyz = listOfAvailablePlants[newIndex];
+                Debug.Log(xyz.plantName);
+                OrderList.Add(xyz);
+                GameObject orderUI = Instantiate(newOrderPrefab, transform.position, Quaternion.identity);
+                orderUI.GetComponent<OrderItemDisplay>().Prime(xyz);
+                orderUI.transform.SetParent(GameObject.Find("OrderPanel").transform, false);
+                orderUI.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
 
 
-            timeAlive = 0;
-            
-            
+                timeAlive = 0;
+                orderNumber++;
+            }
+            if(orderNumber == ordersThisLevel)
+            {
+                allOrdersPlaced = true;
+            }
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)
@@ -82,12 +98,13 @@ public class OrderManager : MonoBehaviour
         {
             FruitBehavior currentFruit = collision.gameObject.GetComponent<FruitBehavior>();
             fruitHit = currentFruit.returnFruitName();
-            removeFruitFromList(fruitHit);
+            removeFruitFromList(fruitHit, collision.gameObject);
             Debug.Log("Ate a " + fruitHit.ToString());
+            
         }
     }
 
-    public void removeFruitFromList(string fruitName)
+    public void removeFruitFromList(string fruitName, GameObject thrownFruit)
     {
         for(int i=0; i<OrderList.Count;i++)
         {
@@ -95,6 +112,8 @@ public class OrderManager : MonoBehaviour
             {
                 OrderList[i].orderCompleted();
                 OrderList.RemoveAt(i);
+                Destroy(thrownFruit);
+                break;
             }
         }
     }
