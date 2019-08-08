@@ -136,6 +136,7 @@ public class OrderManager : MonoBehaviour
         if (ordersMissedSoFar == orderMissLimit)
         {
             monsterAnimator.SetInteger("monsterState", 2);
+            triggered = false;
             Debug.Log("Angry!");
             ordersMissedSoFar = 0;
             

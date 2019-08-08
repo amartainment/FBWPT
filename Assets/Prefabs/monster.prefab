@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1376256755908313594}
   - component: {fileID: 1376256755908313595}
   - component: {fileID: 3451334610508311275}
+  - component: {fileID: 8988799138967079453}
   m_Layer: 0
   m_Name: monster
   m_TagString: Untagged
@@ -131,6 +132,7 @@ MonoBehaviour:
   ordersThisLevel: 5
   orderMissLimit: 2
   triggered: 0
+  monsterAnimator: {fileID: 8988799138967079453}
 --- !u!222 &3451334610508311275
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -139,3 +141,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376256755908313542}
   m_CullTransparentMesh: 0
+--- !u!95 &8988799138967079453
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376256755908313542}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2f489b4f7c5cb546a8aef71755fbc2d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
