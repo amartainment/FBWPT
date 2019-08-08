@@ -133,3 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Plant: {fileID: 6350248938323996609, guid: c04b4dd568cf65644abbe802114e1291, type: 3}
+  collided: 0

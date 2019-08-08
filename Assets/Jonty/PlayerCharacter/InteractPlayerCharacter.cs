@@ -22,7 +22,7 @@ public class InteractPlayerCharacter : MonoBehaviour
             
             //FOR TARGETTING
             Totaldirection = GetComponent<MovementPlayerCharacter>().totaldirection;
-            Debug.Log(Totaldirection);
+            //Debug.Log(Totaldirection);
 
             if (Totaldirection != Vector3.zero )
                 Holding.transform.position = ((transform.position + Totaldirection*2/3));

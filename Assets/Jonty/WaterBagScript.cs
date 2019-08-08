@@ -14,4 +14,17 @@ public class WaterBagScript : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    public void WaterthePlant(GameObject Plant)
+    {
+        float PlantSegment;
+        Vector3 startingposition;
+        PlantSegment = Plant.transform.localScale.y / 3;
+        startingposition = (Plant.transform.position - new Vector3(0, Plant.transform.localScale.y, 0));
+
+        for (int i = 1; i <= 3; i++)
+        {
+            Instantiate(WaterParticles, (startingposition + new Vector3(0, PlantSegment * i, 0)), Quaternion.identity);
+        }
+    }
 }

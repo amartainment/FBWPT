@@ -146,6 +146,7 @@ public abstract class PlantGrowth : MonoBehaviour
             {
                 enablePlantEffects();
                 var obj = collision.gameObject;
+                collision.GetComponent<WaterBagScript>().WaterthePlant(gameObject);
                 WaterManager(obj);
             }
         }

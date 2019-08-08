@@ -5,14 +5,16 @@ using UnityEngine;
 public class InteractHitBox : MonoBehaviour
 {
     public List<GameObject> Item = new List<GameObject>();
-
+    public GameObject GhostPlant, PlantedGhost, Icon, IconTemp;
+    public Sprite Vines, Venus, Jumper, Wheeze;
+    bool GhostPlanted = false;
 
     private void Update()
     {
 
         Vector3 Totaldirection;
         Totaldirection = transform.parent.GetComponent<MovementPlayerCharacter>().totaldirection;
-        Debug.Log("HitBoxUpdate");
+        //Debug.Log("HitBoxUpdate");
 
         if (Totaldirection != Vector3.zero)
         {
@@ -21,7 +23,9 @@ public class InteractHitBox : MonoBehaviour
         else if (Totaldirection == new Vector3(0, 0, 0) || Totaldirection == null)
         {
             if (transform.parent.GetComponent<InteractPlayerCharacter>().Holding != null)
-                transform.position = transform.parent.position + new Vector3(0, 0.7f);
+                transform.position = transform.parent.localPosition + new Vector3(0, 0.7f);
+            //transform.position = transform.parent.position + new Vector3(0, 0.7f);
+
         }
     }
 
@@ -54,16 +58,38 @@ public class InteractHitBox : MonoBehaviour
             Item.Add(collision.gameObject);
 
         if (collision.tag == "seeddispenser")
+        {
+            IconTemp = Instantiate(Icon, collision.transform.position + new Vector3(0, 0.65f, 0), Quaternion.identity);
             transform.parent.GetComponent<InteractPlayerCharacter>().Dispenser = collision.gameObject;
+        }
 
         if (collision.tag == "burrow")
+        {
             transform.parent.GetComponent<InteractPlayerCharacter>().Burrow = collision.gameObject;
 
+            //TO PLANT GHOST
+            Debug.Log("SUMMON");
+            
+
+            if(transform.parent.GetComponent<InteractPlayerCharacter>().Holding.tag == "seed" && collision.GetComponent<BurrowInteractTimer>().SeedType == null && collision.GetComponent<BurrowBehavior>().readyToPlant == true && GhostPlanted == false)
+            {
+                IconTemp = Instantiate(Icon, collision.transform.position + new Vector3(0, 0.65f, 0), Quaternion.identity);
+
+                SummonPlantGhost(transform.parent.GetComponent<InteractPlayerCharacter>().Holding, collision.gameObject);
+            }
+        }
+
         if (collision.tag == "waterdispenser")
+        {
+            IconTemp = Instantiate(Icon, collision.transform.position + new Vector3(0, 0.65f, 0), Quaternion.identity);
             transform.parent.GetComponent<InteractPlayerCharacter>().Dispenser = collision.gameObject;
+        }
 
         if (collision.tag == "fertilizerdispenser")
+        {
+            IconTemp = Instantiate(Icon, collision.transform.position + new Vector3(0, 0.65f, 0), Quaternion.identity);
             transform.parent.GetComponent<InteractPlayerCharacter>().Dispenser = collision.gameObject;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -71,9 +97,54 @@ public class InteractHitBox : MonoBehaviour
             Item.Remove(collision.gameObject);
 
         if (collision.gameObject == transform.parent.GetComponent<InteractPlayerCharacter>().Dispenser)
+        {
+            Destroy(IconTemp);
             transform.parent.GetComponent<InteractPlayerCharacter>().Dispenser = null;
+        }
 
         if (collision.gameObject == transform.parent.GetComponent<InteractPlayerCharacter>().Burrow)
+        {
             transform.parent.GetComponent<InteractPlayerCharacter>().Burrow = null;
+            if(GhostPlanted)
+            {
+                Destroy(PlantedGhost);
+                GhostPlanted = false;
+
+            }
+            Destroy(IconTemp);
+
+        }
+    }
+
+    void SummonPlantGhost(GameObject Seed, GameObject Burrow)
+    {
+        Debug.Log("Summoning Ghost");
+        GhostPlanted = true;
+        GhostPlant.transform.localScale = Seed.GetComponent<SeedScript>().Plant.transform.localScale;
+        GhostPlant.GetComponent<SpriteRenderer>().sprite = GetSprite(Seed.GetComponent<SeedScript>().Plant);
+        PlantedGhost = Instantiate(GhostPlant, (Burrow.transform.position + new Vector3(0,1.5f,0)), Quaternion.identity);
+    }
+
+    Sprite GetSprite(GameObject Plant)
+    {
+        Sprite P;
+        P = Vines;
+
+        if (Plant.name == "ClimberTree")
+            P = Vines;
+
+        if (Plant.name == "TriggerBox")
+        {
+            GhostPlant.transform.localScale = new Vector3(3,3,3);
+            P = Venus;
+        }
+
+        if (Plant.name == "jumpTriggerPlant")
+            P = Jumper;
+
+        if (Plant.name == "")
+            P = Wheeze;
+
+        return P;
     }
 }
