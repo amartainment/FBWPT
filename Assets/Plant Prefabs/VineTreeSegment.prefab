@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164490703676758217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.189, y: -0.228, z: 8.28125}
+  m_LocalPosition: {x: 0.18, y: -0.219, z: 8.28125}
   m_LocalScale: {x: -2.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8164490703820667810}
@@ -147,8 +147,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164490703800397522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.215, y: 0.563, z: 8.28125}
-  m_LocalScale: {x: 2.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: -1.071, y: 0.632, z: 8.28125}
+  m_LocalScale: {x: -2.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8164490703820667810}
   m_RootOrder: 2
@@ -283,6 +283,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8164490705057773036}
   - component: {fileID: 8164490705057773037}
+  - component: {fileID: 2898031235082937943}
+  - component: {fileID: 411825876215250767}
   m_Layer: 0
   m_Name: ClimberFinalAsset
   m_TagString: Untagged
@@ -353,3 +355,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2898031235082937943
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164490705057773034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9360a5ef897512444889216f03f4ad38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &411825876215250767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164490705057773034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10b41beb4dd2f640a172c01c6cd8aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leaf1: {fileID: 8164490703800397522}
+  leaf2: {fileID: 8164490703676758217}
