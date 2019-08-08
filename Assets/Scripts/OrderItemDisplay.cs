@@ -7,8 +7,10 @@ public class OrderItemDisplay : MonoBehaviour
 {
     public Image plantSpriteDisplay;
     public Text durationTextDisplay;
-
+    public Slider timerSlider;  
     public Order newOrder;
+    public Order linkedOrder;
+    public Image timeSliderFillArea;
     
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,16 @@ public class OrderItemDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (newOrder != null)
+        {
+            
+            timerSlider.value = linkedOrder.currentTick; 
+        }
+
+        if(timerSlider.value > timerSlider.maxValue*3/4)
+        {   
+            timeSliderFillArea.color = new Color32(255, 0, 0, 255);     
+        }
     }
 
     public void Prime(Order newOrder)
@@ -33,6 +44,10 @@ public class OrderItemDisplay : MonoBehaviour
         {
             durationTextDisplay.text = newOrder.orderDeadline.ToString();
         }
+        linkedOrder = newOrder;
+        timerSlider.maxValue = linkedOrder.orderDeadline;
+        timerSlider.minValue = 0;
+        
         newOrder.setUIElement(gameObject);
     }
 }

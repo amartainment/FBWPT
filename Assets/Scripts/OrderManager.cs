@@ -13,6 +13,7 @@ public class OrderManager : MonoBehaviour
     private bool myTimeStarted = false;
     private string fruitHit;
     public int ordersThisLevel;
+    //public int actualOrdersThisLevel;
     int orderNumber = 0;
     bool allOrdersPlaced = false;
     int ordersMissedSoFar = 0;
@@ -76,14 +77,15 @@ public class OrderManager : MonoBehaviour
             {
                 //Debug.Log("5");
                 Debug.Log(Random.Range(0, listOfAvailablePlants.Count));
+                
                 int newIndex = Random.Range(0, listOfAvailablePlants.Count);
                 GameObject xyz = listOfAvailablePlants[newIndex];
                 GameObject orderToAdd = Instantiate(xyz, new Vector3(500, 500, 500),Quaternion.identity);
                 Debug.Log(orderToAdd.GetComponent<Order>().plantName);
+
                 orderToAdd.GetComponent<Order>().setOrderManager(gameObject.GetComponent<OrderManager>());
                 OrderList.Add(orderToAdd);
                 
-
                 GameObject orderUI = Instantiate(newOrderPrefab, transform.position, Quaternion.identity);
                 orderUI.GetComponent<OrderItemDisplay>().Prime(orderToAdd.GetComponent<Order>());
                 orderUI.transform.SetParent(GameObject.Find("OrderPanel").transform, false);
