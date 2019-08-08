@@ -120,11 +120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f0a886764b84a448073fa4f20e0869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easeDuration: 5
+  easeDuration: 3
   listOfAvailablePlants:
-  - {fileID: 4206830107931809344, guid: 0388b3a51a60f3048b1bb2bf15641e9f, type: 3}
-  - {fileID: 4011846375827212422, guid: 70b0a78e92081da41814e84e0d6a4225, type: 3}
-  - {fileID: 307726506382166568, guid: ad7358e3b8c07734bb1f809de0ecbd09, type: 3}
+  - {fileID: 2056048890504447600, guid: 70b0a78e92081da41814e84e0d6a4225, type: 3}
+  - {fileID: 2526101991832910143, guid: fe02f08faef344c43849ecc9f64ce2b0, type: 3}
   OrderList: []
   newOrderPrefab: {fileID: 3753109390114928533, guid: bf1d93bb83da71948860903cc556ab68,
     type: 3}
+  ordersThisLevel: 5
+  orderMissLimit: 2
+  triggered: 0
