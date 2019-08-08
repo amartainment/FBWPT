@@ -6,6 +6,25 @@ public class InteractHitBox : MonoBehaviour
 {
     public List<GameObject> Item = new List<GameObject>();
 
+
+    private void Update()
+    {
+
+        Vector3 Totaldirection;
+        Totaldirection = transform.parent.GetComponent<MovementPlayerCharacter>().totaldirection;
+        Debug.Log("HitBoxUpdate");
+
+        if (Totaldirection != Vector3.zero)
+        {
+            transform.position = ((transform.parent.position + Totaldirection * 2 / 3));
+        }
+        else if (Totaldirection == new Vector3(0, 0, 0) || Totaldirection == null)
+        {
+            if (transform.parent.GetComponent<InteractPlayerCharacter>().Holding != null)
+                transform.position = transform.parent.position + new Vector3(0, 0.7f);
+        }
+    }
+
     public GameObject GetItem()
     {
         GameObject G;

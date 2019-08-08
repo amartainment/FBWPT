@@ -6,6 +6,7 @@ public class InteractPlayerCharacter : MonoBehaviour
 {
     public GameObject Holding, Dispenser, Burrow;
     float Dir;
+    Vector3 Totaldirection;
 
     void Update()
     {
@@ -16,13 +17,34 @@ public class InteractPlayerCharacter : MonoBehaviour
         }
         if (Holding != null)
         {
-            if (Holding.GetComponent<Rigidbody2D>().isKinematic == false)
-                Holding.GetComponent<Rigidbody2D>().isKinematic = true;
+            if(Holding.GetComponent<Rigidbody2D>().isKinematic == false && Holding.GetComponent<Collider2D>().enabled == true)
+            PickupTurnOnKinTurnOffCol();
+            
+            //FOR TARGETTING
+            Totaldirection = GetComponent<MovementPlayerCharacter>().totaldirection;
+            Debug.Log(Totaldirection);
 
-            Holding.transform.position = (transform.position + new Vector3((0.2f * Dir), 0.7f));
+            if (Totaldirection != Vector3.zero )
+                Holding.transform.position = ((transform.position + Totaldirection*2/3));
+            else if(Totaldirection == new Vector3(0,0,0) || Totaldirection == null)
+                Holding.transform.position = transform.position + new Vector3(0, 0.7f);
+
+            //Holding.transform.position = (transform.position + new Vector3((0.2f * Dir), 0.7f));
         }
         
         
+    }
+
+    void PickupTurnOnKinTurnOffCol()
+    {
+        Holding.GetComponent<Rigidbody2D>().isKinematic = true;
+        Holding.GetComponent<Collider2D>().enabled = false;
+    }
+
+    void ThrowTurnOffKinTurnOnCol()
+    {
+        Holding.GetComponent<Rigidbody2D>().isKinematic = false;
+        Holding.GetComponent<Collider2D>().enabled = true;
     }
 
     public void Interact()
@@ -42,8 +64,14 @@ public class InteractPlayerCharacter : MonoBehaviour
 
                 if (Dispenser.tag == "seeddispenser")
                     Holding = Instantiate(Dispenser.GetComponent<SeedDispenser>().Seed, SpawnPoint, Quaternion.identity);
+
                 if (Dispenser.tag == "waterdispenser")
-                    Holding = Instantiate(Dispenser.GetComponent<WaterPumpScript>().WaterBag, SpawnPoint, Quaternion.identity);
+                {
+                    Holding = Dispenser.GetComponent<WaterPumpScript>().Pump(gameObject, SpawnPoint);
+
+                    //Holding = Instantiate(Dispenser.GetComponent<WaterPumpScript>().WaterBag, SpawnPoint, Quaternion.identity);
+                }
+
                 if (Dispenser.tag == "fertilizerdispenser")
                     Holding = Instantiate(Dispenser.GetComponent<FertilizerDispenser>().Fertilizer, SpawnPoint, Quaternion.identity);
             }
@@ -69,10 +97,16 @@ public class InteractPlayerCharacter : MonoBehaviour
             {
                 PlantSeed(Holding, Burrow);
             }
+            //TO DROP ITEMS
             else
             {
-                Holding.GetComponent<Rigidbody2D>().isKinematic = false;
+                GameObject TempHold;
+                TempHold = Holding;
+                //Holding.GetComponent<Rigidbody2D>().isKinematic = false;
+                ThrowTurnOffKinTurnOnCol();
                 Holding = null;
+                //if(TempHold.GetComponent<SeedScript>().collided == true)
+                //    TempHold.transform.position += new Vector3(0, transform.position.y)
             }
         }
 
@@ -82,6 +116,9 @@ public class InteractPlayerCharacter : MonoBehaviour
     {
         
         Holding = transform.GetChild(0).GetComponent<InteractHitBox>().GetItem();
+
+        //CLEAR ITEM LIST TO MAKE SURE NO MISSING ITEM REMAINS
+        transform.GetChild(0).GetComponent<InteractHitBox>().Item.Clear();
 
         if (Holding != null)
         {
