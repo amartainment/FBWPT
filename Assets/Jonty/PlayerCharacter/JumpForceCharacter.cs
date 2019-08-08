@@ -43,7 +43,7 @@ public class JumpForceCharacter : MonoBehaviour
 
 
 
-        Debug.Log(Physics2D.GetIgnoreCollision(GameObject.Find("Collideable").GetComponent<TilemapCollider2D>(), GetComponent<CapsuleCollider2D>()));
+        //Debug.Log(Physics2D.GetIgnoreCollision(GameObject.Find("Collideable").GetComponent<TilemapCollider2D>(), GetComponent<CapsuleCollider2D>()));
     }
 
     public void CharacterJump(float jumpheight)
