@@ -2,20 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.PlayerInput;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
+    
     Vector2 horizontalMovement;
     bool canmove = true;
     public float jumpheight;
     float direction = 1, velocityx;
     public static bool stunned;
-
+    public int playerNumber = 0;
+    playerManager gamePlayerManager;
+    
     //Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
+        Initialize();
+        Debug.Log("Player joined!");
     }
+
+    public void Initialize()
+    {
+        gamePlayerManager = GameObject.Find("PlayerInputManager").GetComponent<playerManager>();
+        gamePlayerManager.assignPlayerNumbers(gameObject.GetComponent<playerController>());
+    }
+
     private void Awake()
     {
         
@@ -28,6 +42,7 @@ public class playerController : MonoBehaviour
 
         velocityx = GetComponent<Rigidbody2D>().velocity.x;
     }
+    
 
     private void OnMove(InputValue value)
     {
@@ -38,7 +53,7 @@ public class playerController : MonoBehaviour
 
     private void OnJoin()
     {
-        Debug.Log("Player joined!");
+        SceneManager.LoadScene(1);   
     }
     private void OnDash()
     {
@@ -98,5 +113,19 @@ public class playerController : MonoBehaviour
     {
         if (dir != 0)
             direction = Mathf.Sign(dir);
+    }
+
+    public void DieAndRespawn()
+    {
+        gameObject.transform.position = new Vector3(1000, 1000, 1000);
+        IEnumerator playerRespawn = respawnTimer(5);
+        StartCoroutine(playerRespawn);
+    }
+
+    IEnumerator respawnTimer(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+        gamePlayerManager.assignColor(playerNumber, GetComponent<SpriteRenderer>());
+
     }
 }

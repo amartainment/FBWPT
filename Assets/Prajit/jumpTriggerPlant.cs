@@ -51,7 +51,7 @@ public class jumpTriggerPlant : PlantGrowth
 
                 else if(jumped)
                 {
-                    Destroy(collision.gameObject);
+                    collision.gameObject.GetComponent<playerController>().DieAndRespawn();
                     if (fertilizer == 2)
                     {
                         StartCoroutine("wakeupTimeStage1");
