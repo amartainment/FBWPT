@@ -27,6 +27,7 @@ public class ClimberLeafBehavior : MonoBehaviour
         if (transform.localScale.x < 0)
         {
             transform.eulerAngles = new Vector3(0, 0, -90);
+            transform.localScale = new Vector2(-1, 0);
         }
 
         GetComponent<BoxCollider2D>().enabled = false;

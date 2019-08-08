@@ -55,10 +55,11 @@ MonoBehaviour:
     type: 3}
   waterCallout: {fileID: 3910449351823632391}
   fertilizerCallout: {fileID: 7380752470922173434}
+  allotedBurow: {fileID: 0}
   fertilizer: 0
   waterLimit: 1
-  fertilizerLimit: 1
-  fruit: {fileID: 0}
+  fertilizerLimit: 3
+  fruit: {fileID: 218756322353277045, guid: 4360905a423e090418b421ab2f908c20, type: 3}
   vineSegment: {fileID: 8164490703820667811, guid: 69d8fae7ff6a7fd459b9b02ab21e0c74,
     type: 3}
   saplingPrefab: {fileID: 1017674026356700015, guid: d419d5ac35319494b9ce10a5b8b2700f,
