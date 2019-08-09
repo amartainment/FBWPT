@@ -134,3 +134,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plant: {fileID: 8734246965659999599, guid: ad2c725c1945c5d43ba28fe74e6782be, type: 3}
   collided: 0
+  SeedName: Seed_VenusFlyTrap

@@ -134,3 +134,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plant: {fileID: 190302618600979975, guid: d6f78d98e04eee842b49aa238a9220cf, type: 3}
   collided: 0
+  SeedName: Seed_JumpPad

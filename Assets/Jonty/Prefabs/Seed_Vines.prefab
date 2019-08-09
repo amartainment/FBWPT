@@ -134,3 +134,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plant: {fileID: 8435753493992119644, guid: 57760a6332f71eb4bbb239ca2ca7b21d, type: 3}
   collided: 0
+  SeedName: Seed_Vines
