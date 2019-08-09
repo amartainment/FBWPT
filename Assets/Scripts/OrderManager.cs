@@ -21,6 +21,8 @@ public class OrderManager : MonoBehaviour
     public int orderMissLimit;
     public bool triggered = false;
     public int startDelay;
+    public int ordersCompleted;
+    public GameObject levelDoneScreen;
 
     public Animator monsterAnimator;
 
@@ -53,6 +55,17 @@ public class OrderManager : MonoBehaviour
         if (!allOrdersPlaced)
         {
             CreateOrder();
+        }
+        checkOrderStatus();
+    }
+
+    void checkOrderStatus()
+    {
+        if(ordersCompleted == ordersThisLevel)
+        {
+            levelDoneScreen.SetActive(true);
+            levelDoneScreen.GetComponent<startMenu>().levelDone = true;
+            levelDoneScreen.GetComponent<startMenu>().endLevel();
         }
     }
 
@@ -136,6 +149,7 @@ public class OrderManager : MonoBehaviour
                 OrderList.RemoveAt(i);
                 Destroy(thrownFruit);
                 triggered = false;
+                ordersCompleted++;
                 break;
                             }
         }

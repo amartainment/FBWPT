@@ -144,7 +144,7 @@ public class jumpTriggerPlant : PlantGrowth
         //gameObject.GetComponent<SpriteRenderer>().sprite = disabledSprite;
         item.color = new Color32(126, 100, 8, 255);
         jump = false;
-        jumped = false;
+        //jumped = false;
     }
 
     override public void enablePlantEffects()
@@ -152,7 +152,7 @@ public class jumpTriggerPlant : PlantGrowth
        // gameObject.GetComponent<SpriteRenderer>().sprite = phase1;
        item.color = new Color32(255, 255, 255, 255);    
         jump = true;
-        jumped = false;
+        //jumped = false;
     }
 
     public IEnumerator wakeupTimeStage1(int duration)

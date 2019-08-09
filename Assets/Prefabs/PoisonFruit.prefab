@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: PoisonFruit
   orderDeadline: 250
-  orderImage: {fileID: 21300000, guid: def36850a0da83a4fa9f3026b70f18aa, type: 3}
+  orderImage: {fileID: 21300000, guid: d69c1a9c05c483141b5c284c527b7960, type: 3}
   currentTick: 0
