@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8435753493992119635}
   m_Layer: 0
   m_Name: ClimberTree
-  m_TagString: Untagged
+  m_TagString: leaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 3185935434732579763, guid: d76506c483a1ad4469cbf4a02b1ff103,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.018
+      value: 0.6780001
       objectReference: {fileID: 0}
     - target: {fileID: 3185935434732579763, guid: d76506c483a1ad4469cbf4a02b1ff103,
         type: 3}
@@ -201,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 2729119304460805428, guid: bef2149bf61ff4b4aa5d3676d4171579,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2729119304460805428, guid: bef2149bf61ff4b4aa5d3676d4171579,
         type: 3}
