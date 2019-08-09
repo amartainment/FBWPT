@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClimberBehavior : PlantGrowth
+public class ClimberAlternateBehavior : PlantGrowth
 {
     bool plantDisabled = false;
     public GameObject fruit;
@@ -21,9 +21,11 @@ public class ClimberBehavior : PlantGrowth
 
     void instantiateSapling()
     {
-        sapling = Instantiate(saplingPrefab, transform.position, Quaternion.identity);
-        sapling.transform.parent = gameObject.transform;
-
+        if (sapling != null)
+        {
+            sapling = Instantiate(saplingPrefab, transform.position, Quaternion.identity);
+            sapling.transform.parent = gameObject.transform;
+        }
     }
 
     // Update is called once per frame
