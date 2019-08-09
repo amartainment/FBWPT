@@ -121,28 +121,28 @@ public class InteractHitBox : MonoBehaviour
         Debug.Log("Summoning Ghost");
         GhostPlanted = true;
         GhostPlant.transform.localScale = Seed.GetComponent<SeedScript>().Plant.transform.localScale;
-        GhostPlant.GetComponent<SpriteRenderer>().sprite = GetSprite(Seed.GetComponent<SeedScript>().Plant);
+            GhostPlant.GetComponent<SpriteRenderer>().sprite = GetSprite(Seed);
         PlantedGhost = Instantiate(GhostPlant, (Burrow.transform.position + new Vector3(0,1.5f,0)), Quaternion.identity);
     }
 
-    Sprite GetSprite(GameObject Plant)
+    Sprite GetSprite(GameObject Seed)
     {
         Sprite P;
         P = Vines;
-
-        if (Plant.name == "ClimberTree")
+       
+        if (Seed.GetComponent<SeedScript>().SeedName == "Seed_Vines")
             P = Vines;
 
-        if (Plant.name == "TriggerBox")
+        if (Seed.GetComponent<SeedScript>().SeedName == "Seed_VenusFlyTrap")
         {
             GhostPlant.transform.localScale = new Vector3(3,3,3);
             P = Venus;
         }
 
-        if (Plant.name == "jumpTriggerPlant")
+        if (Seed.GetComponent<SeedScript>().SeedName == "Seed_JumpPad")
             P = Jumper;
 
-        if (Plant.name == "")
+        if (Seed.GetComponent<SeedScript>().SeedName == "Seed_StonedDaisy")
             P = Wheeze;
 
         return P;

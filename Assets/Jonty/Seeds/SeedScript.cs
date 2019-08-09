@@ -6,6 +6,7 @@ public class SeedScript : MonoBehaviour
 {
     public GameObject Plant;
     public bool collided;
+    public string SeedName;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Collideable")

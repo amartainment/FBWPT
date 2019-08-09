@@ -134,3 +134,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Plant: {fileID: 8435753493992119644, guid: 1af21d0f625dbe3469f4e6a5df569f7f, type: 3}
   collided: 0
+  SeedName: Seed_StonedDaisy

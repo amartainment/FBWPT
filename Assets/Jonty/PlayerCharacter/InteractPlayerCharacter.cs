@@ -95,6 +95,10 @@ public class InteractPlayerCharacter : MonoBehaviour
             //TO PLANT SEEDS
             if (Holding.tag == "seed" && Burrow != null && Burrow.GetComponent<BurrowBehavior>().readyToPlant)
             {
+                if(transform.GetChild(0).GetComponent<InteractHitBox>().PlantedGhost!=null)
+                {
+                    Destroy(transform.GetChild(0).GetComponent<InteractHitBox>().PlantedGhost);
+                }
                 PlantSeed(Holding, Burrow);
             }
             //TO DROP ITEMS
