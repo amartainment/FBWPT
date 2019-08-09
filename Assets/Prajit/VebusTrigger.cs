@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class VebusTrigger : MonoBehaviour
 {
-    VenusFlyTrap _venusFlyTrap;
+    public VenusFlyTrap _venusFlyTrap;
     public bool playerSpotted;
+    public bool playerAttacked;
 
     public GameObject _player;
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class VebusTrigger : MonoBehaviour
         {
             playerSpotted = true;
             _player =  collision.gameObject;
-            //_venusFlyTrap.attack();
+            _venusFlyTrap.attack(_player);
 
         }
     }
@@ -37,7 +38,7 @@ public class VebusTrigger : MonoBehaviour
         {
             playerSpotted = true;
             _player = collision.gameObject;
-           // _venusFlyTrap.attack();
+            _venusFlyTrap.attack(_player);
 
         }
     }
@@ -50,6 +51,8 @@ public class VebusTrigger : MonoBehaviour
             _player = null;
         }
     }
+
+
 
     public GameObject returnPlayer()
     {

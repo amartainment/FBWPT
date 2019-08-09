@@ -6,14 +6,16 @@ public class VenusFlyTrap : PlantGrowth
 {
     public VebusTrigger _venusTrigger;
     public BoxCollider2D triggerBox;
+    public Rigidbody2D rigidBody;
+
     
-    private bool enableEffects;
+    public bool enableEffects;
     Vector3 originalPosition;
     Vector3 attackDirection;
     private bool timerRunning;
     private bool waitTimeIsRunning;
 
-    GameObject _player;
+   // GameObject _player;
 
     // Start is called before the first frame update
     void Start()
@@ -26,17 +28,14 @@ public class VenusFlyTrap : PlantGrowth
     void Update()
     {
         base.Update();
-        if (enableEffects && !waitTimeIsRunning)
-        {
-            getPlayer();
-            lookAtPlayer();
-        }
+
     }
 
 
     public override void harvest()
     {
         Destroy(gameObject);
+        Destroy(_venusTrigger.gameObject);
         //Instantiate Fruit.
         Debug.Log("Ready to harvest");
 
@@ -77,16 +76,14 @@ public class VenusFlyTrap : PlantGrowth
         }
     }
 
-    public void lookAtPlayer()
+    public void lookAtPlayer(GameObject player)
     {
 
-        if (_player != null)
+        if (player != null)
         {
 
-            attackDirection = _player.transform.position - transform.position;
+            attackDirection = player.transform.position - transform.position;
             StartCoroutine("waitTimer");
-
-
         }
 
         else
@@ -100,16 +97,19 @@ public class VenusFlyTrap : PlantGrowth
 
     }
 
-    public void getPlayer()
-    {
-       _player = _venusTrigger.returnPlayer();
-    }
+    //public void getPlayer()
+    //{
+    //    if (_player != null)
+    //    {
+    //        _player = _venusTrigger.returnPlayer();
+    //    }
+    //}
 
     public IEnumerator snapBack()
     {
         timerRunning = true;
         yield return new WaitForSeconds(1f);
-        GetComponent<Rigidbody2D>().MovePosition((originalPosition));
+        rigidBody.MovePosition((originalPosition));
         timerRunning = false;
 
     }
@@ -119,10 +119,9 @@ public class VenusFlyTrap : PlantGrowth
         waitTimeIsRunning = true;
         Debug.Log("i m in wait timer");
         //add waiting animation here
-        yield return new WaitForSeconds(0.03f);
-        GetComponent<Rigidbody2D>().MovePosition(transform.position + Vector3.Normalize(attackDirection) * 0.2f);
 
-
+        yield return new WaitForSeconds(1f);
+        rigidBody.MovePosition(transform.position + Vector3.Normalize(attackDirection) * 2f);
         //transform.position = transform.position + Vector3.Normalize(attackDirection) * 0.2f;
         //originalPosition = transform.position + Vector3.Normalize(attackDirection) * 0.2f;
         if (!timerRunning)
@@ -131,13 +130,20 @@ public class VenusFlyTrap : PlantGrowth
         }
         Debug.Log("attack direction" + attackDirection);
         Debug.Log("gameobject" + gameObject);
-        Debug.Log("player" + _player);
+        //Debug.Log("player" + _player);
         waitTimeIsRunning = false;
     }
 
-    public void attack()
+    public void attack(GameObject player)
     {
-
+        if (enableEffects && !waitTimeIsRunning && player!=null)
+        {
+            //getPlayer();
+            //lookAtPlayer(player);
+            GameObject _player = player;
+            attackDirection = _player.transform.position - transform.position;
+            StartCoroutine("waitTimer");
+        }
     }
 
     //override public void OnTriggerStay2D(Collider2D collision)

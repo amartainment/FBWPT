@@ -21,32 +21,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6671823012797975991
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2397588261224543106}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
-  m_EdgeRadius: 0
 --- !u!1 &6436501895557828951
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +112,7 @@ GameObject:
   - component: {fileID: 1695637030660714818}
   - component: {fileID: 6735927469723884653}
   - component: {fileID: 4672159378980348504}
+  - component: {fileID: 6793176832142146435}
   m_Layer: 0
   m_Name: TriggerBox
   m_TagString: Untagged
@@ -199,8 +174,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549b2a8f33da357418e4eb4d7fcda4af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _venusFlyTrap: {fileID: 6793176832142146435}
   playerSpotted: 0
+  playerAttacked: 0
   _player: {fileID: 0}
+--- !u!114 &6793176832142146435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734246965659999599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c15e5ee1f92c3347aa4eec6be3d702e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycleDuration: 10
+  punishmentDuration: 10
+  water: 0
+  wantWater: 0
+  wantFertilizer: 0
+  fruitPrefab: {fileID: 218756322353277045, guid: df0de6a51b7cc584f99a1b55bdbeb0d8,
+    type: 3}
+  waterCallout: {fileID: 4876685568571484139}
+  fertilizerCallout: {fileID: 6038295143263201949}
+  allotedBurow: {fileID: 0}
+  fertilizer: 0
+  waterLimit: 1
+  fertilizerLimit: 4
+  _venusTrigger: {fileID: 4672159378980348504}
+  triggerBox: {fileID: 6735927469723884653}
+  rigidBody: {fileID: 1716359564405383434}
+  enableEffects: 0
 --- !u!1001 &139621187533698970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -268,6 +274,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5751386732162828465, guid: b556304ef3d701b41bb5979a4ec9af2d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751386732162828465, guid: b556304ef3d701b41bb5979a4ec9af2d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.026871376
+      objectReference: {fileID: 0}
+    - target: {fileID: 5751386732162828465, guid: b556304ef3d701b41bb5979a4ec9af2d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.37374276
+      objectReference: {fileID: 0}
     - target: {fileID: -6281545855037874137, guid: b556304ef3d701b41bb5979a4ec9af2d,
         type: 3}
       propertyPath: _venusTrigger
@@ -288,22 +309,13 @@ PrefabInstance:
       propertyPath: triggerBox
       value: 
       objectReference: {fileID: 6735927469723884653}
-    - target: {fileID: 5751386732162828465, guid: b556304ef3d701b41bb5979a4ec9af2d,
+    - target: {fileID: -6281545855037874137, guid: b556304ef3d701b41bb5979a4ec9af2d,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5751386732162828465, guid: b556304ef3d701b41bb5979a4ec9af2d,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.026871376
-      objectReference: {fileID: 0}
-    - target: {fileID: 5751386732162828465, guid: b556304ef3d701b41bb5979a4ec9af2d,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.37374276
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6281545855037874137, guid: b556304ef3d701b41bb5979a4ec9af2d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b556304ef3d701b41bb5979a4ec9af2d, type: 3}
 --- !u!1 &2397588261224543106 stripped
 GameObject:
@@ -314,6 +326,18 @@ GameObject:
 --- !u!4 &2397588261224543132 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2357064208928932870, guid: b556304ef3d701b41bb5979a4ec9af2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 139621187533698970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4876685568571484139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4782118108144488561, guid: b556304ef3d701b41bb5979a4ec9af2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 139621187533698970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6038295143263201949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5925714332703464711, guid: b556304ef3d701b41bb5979a4ec9af2d,
     type: 3}
   m_PrefabInstance: {fileID: 139621187533698970}
   m_PrefabAsset: {fileID: 0}

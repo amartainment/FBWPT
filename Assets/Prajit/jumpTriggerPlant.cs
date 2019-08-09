@@ -81,16 +81,16 @@ public class jumpTriggerPlant : PlantGrowth
                     {
                         Debug.Log("i m in fertilizer");
                         // StartCoroutine("wakeupTimeStage1");
-                        StopCoroutine(wakeupStage2Timer);
-                        wakeupStage1Timer = wakeupTimeStage1(cycleDuration);
-                        StartCoroutine(wakeupStage1Timer);
+                        //StopCoroutine(wakeupStage2Timer);
+                       // wakeupStage1Timer = wakeupTimeStage1(cycleDuration);
+                       // StartCoroutine(wakeupStage1Timer);
                     }
 
                     else if (fertilizer == 3)
                     {
-                        StopCoroutine(wakeupStage1Timer);
-                        wakeupStage2Timer = wakeupTimeStage2(cycleDuration*2);
-                        StartCoroutine(wakeupStage2Timer);
+                       // StopCoroutine(wakeupStage1Timer);
+                       // wakeupStage2Timer = wakeupTimeStage2(cycleDuration*2);
+                       // StartCoroutine(wakeupStage2Timer);
                     }
 
 
