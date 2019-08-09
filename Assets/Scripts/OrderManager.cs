@@ -20,6 +20,7 @@ public class OrderManager : MonoBehaviour
     int ordersMissedSoFar = 0;
     public int orderMissLimit;
     public bool triggered = false;
+    public int startDelay;
 
     public Animator monsterAnimator;
 
@@ -38,7 +39,7 @@ public class OrderManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        orderCreationAndAddition();
+       // orderCreationAndAddition();
         //List<Order> newOrderList = new List<Order>();
         /*listOfAvailablePlants.Add(new Order("Orange", 40, null));
         listOfAvailablePlants.Add(new Order("Apple", 40, null));
@@ -70,7 +71,10 @@ public class OrderManager : MonoBehaviour
 
     void CreateOrder()
     {
-        
+        if(timeAlive == startDelay && orderNumber ==0)
+        {
+            orderCreationAndAddition();
+        }
          if(orderNumber<ordersThisLevel)   
        //if (OrderList.Count < ordersThisLevel-1)
         {

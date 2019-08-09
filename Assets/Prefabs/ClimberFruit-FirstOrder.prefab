@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8518507406543553912}
   - component: {fileID: 4011846375827212422}
   m_Layer: 0
-  m_Name: ClimberFruit
+  m_Name: ClimberFruit-FirstOrder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantName: ClimberFruit
-  orderDeadline: 250
+  orderDeadline: 400
   orderImage: {fileID: 21300000, guid: 10f2c6760b1c2d4449b4ec22f53a2e4d, type: 3}
   currentTick: 0
