@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2402546957618054084}
   - component: {fileID: 3521397253916365072}
   - component: {fileID: 6713716736232584436}
+  - component: {fileID: 1859131916}
   m_Layer: 0
   m_Name: FertilizerDispenser
   m_TagString: fertilizerdispenser
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6713716736232584331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.53, y: -0.95, z: 0}
-  m_LocalScale: {x: 0.75201, y: 0.75201, z: 0.75201}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,8 +73,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e96fd66d0c3aae640bdaff52f25520f8, type: 3}
-  m_Color: {r: 0.5566038, g: 0.3929948, b: 0.128649, a: 1}
+  m_Sprite: {fileID: 8920547741955251417, guid: 671939624416bc84c81baa33d085a9da,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,3 +146,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fertilizer: {fileID: 1815698420134432235, guid: d49456294154e9640a78552e264fc9fd,
     type: 3}
+--- !u!95 &1859131916
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713716736232584331}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d9332cc489cde844a5e006e0f261f6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

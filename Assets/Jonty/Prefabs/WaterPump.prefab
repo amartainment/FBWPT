@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5075732020543025926}
   - component: {fileID: 6339261773005677010}
   - component: {fileID: 2629646856398877864}
+  - component: {fileID: 334091170163914554}
   m_Layer: 0
   m_Name: WaterPump
   m_TagString: waterdispenser
@@ -147,3 +148,23 @@ MonoBehaviour:
     type: 3}
   WaterParticles: {fileID: 6621963449832584485, guid: b69bfcdf6d4fcf64bbb50fca50236907,
     type: 3}
+  anim: {fileID: 334091170163914554}
+--- !u!95 &334091170163914554
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4182992030415389769}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c0388f3fa402c44b82ed451bdcda3da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

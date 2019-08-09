@@ -8,11 +8,7 @@ public class WaterBagScript : MonoBehaviour
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(WaterParticles, transform.position, Quaternion.identity);
-        Instantiate(WaterParticles, transform.position, Quaternion.identity);
-        Instantiate(WaterParticles, transform.position, Quaternion.identity);
-
-        Destroy(gameObject);
+        StartCoroutine("destroyTimer");
     }
 
     public void WaterthePlant(GameObject Plant)
@@ -26,5 +22,15 @@ public class WaterBagScript : MonoBehaviour
         {
             Instantiate(WaterParticles, (startingposition + new Vector3(0, PlantSegment * i, 0)), Quaternion.identity);
         }
+    }
+
+    IEnumerator destroyTimer()
+    {
+        yield return new WaitForSeconds(0.05f);
+        Instantiate(WaterParticles, transform.position, Quaternion.identity);
+        Instantiate(WaterParticles, transform.position, Quaternion.identity);
+        Instantiate(WaterParticles, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

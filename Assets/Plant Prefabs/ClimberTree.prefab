@@ -57,8 +57,8 @@ MonoBehaviour:
   fertilizerCallout: {fileID: 7380752470922173434}
   allotedBurow: {fileID: 0}
   fertilizer: 0
-  waterLimit: 1
-  fertilizerLimit: 3
+  waterLimit: 2
+  fertilizerLimit: 4
   fruit: {fileID: 218756322353277045, guid: 4360905a423e090418b421ab2f908c20, type: 3}
   vineSegment: {fileID: 8164490703820667811, guid: 69d8fae7ff6a7fd459b9b02ab21e0c74,
     type: 3}

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164490703676758217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18, y: -0.219, z: 8.28125}
+  m_LocalPosition: {x: 0.3, y: -0.09, z: 8.28125}
   m_LocalScale: {x: -2.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8164490703820667810}
@@ -107,7 +107,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17557132, y: 0.081824265}
+  m_Offset: {x: -0.17557132, y: 0.13}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.6432945, y: 0.39738023}
@@ -118,7 +118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31338143, y: 0.11333622}
+  m_Size: {x: 0.47, y: 0.12}
   m_EdgeRadius: 0
 --- !u!1 &8164490703800397522
 GameObject:
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 8164490703800397525}
   - component: {fileID: 8164490703800397526}
   - component: {fileID: 8164490703800397527}
-  - component: {fileID: 8164490703800397524}
+  - component: {fileID: 2177582801244746286}
   m_Layer: 0
   m_Name: LeafPlatformFinalAsset (3)
   m_TagString: leaf
@@ -147,8 +147,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164490703800397522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.071, y: 0.632, z: 8.28125}
-  m_LocalScale: {x: -2.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: -0.21, y: 0.7, z: 8.28125}
+  m_LocalScale: {x: 2.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8164490703820667810}
   m_RootOrder: 2
@@ -191,9 +191,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d5bcd87953d2913469e89532cf937019, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99f5766f45528eb48b44ad201215ba4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d500d003758ea4aaee4fb5a374a6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &8164490703800397524
+--- !u!61 &2177582801244746286
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,10 +227,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17557132, y: 0.069378845}
+  m_Offset: {x: -0.20496933, y: 0.09}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6432945, y: 0.39738023}
+    pivot: {x: 0.30409035, y: 0.42782158}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -238,7 +238,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31338143, y: 0.13822706}
+  m_Size: {x: 0.4, y: 0.15073109}
   m_EdgeRadius: 0
 --- !u!1 &8164490703820667811
 GameObject:

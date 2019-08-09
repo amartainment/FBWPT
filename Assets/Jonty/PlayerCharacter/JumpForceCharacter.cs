@@ -17,15 +17,16 @@ public class JumpForceCharacter : MonoBehaviour
     {
         //Debug.Log("Vertical velocity " + GetComponent<Rigidbody2D>().velocity.y);
 
-        //TURN COLLISION WITH PLATFORMS OFF
+        //TURN COLLISION WITH PLATFORMS OFF - THIS CODE DOESNT WORK FOR THE LEAVES BRO.
         if(GetComponent<Rigidbody2D>().velocity.y > 0)
-        Physics2D.IgnoreCollision(GameObject.Find("Collideable").GetComponent<TilemapCollider2D>(), GetComponent<CapsuleCollider2D>());
-
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
+            //Physics2D.IgnoreCollision(GameObject.Find("Collideable").GetComponent<TilemapCollider2D>(), GetComponent<CapsuleCollider2D>());
+            
         if (GetComponent<Rigidbody2D>().velocity.y <= 0)
         {
             //TURN COLLISION WITH PLATFORMS BACK ON WHEN GAMEOBJECT IS FALLING
-            Physics2D.IgnoreCollision(GameObject.Find("Collideable").GetComponent<TilemapCollider2D>(), GetComponent<CapsuleCollider2D>(), false);
-
+           // Physics2D.IgnoreCollision(GameObject.Find("Collideable").GetComponent<TilemapCollider2D>(), GetComponent<CapsuleCollider2D>(), false);
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
             RaycastHit2D LandedCheck = Physics2D.Raycast((transform.position - new Vector3(0, raycastoffset)), -transform.up, 0.08f);
             Debug.DrawRay((transform.position - new Vector3(0, raycastoffset)), -transform.up);
 

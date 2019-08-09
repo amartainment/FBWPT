@@ -10,5 +10,5 @@ public class EventSystem
     //public static System.Action<float> Jump;
     public static System.Action<int> timeTick;
     public static System.Action<int> orderMissedEvent;
-
+    public static System.Action<int> bossPissed;
 }

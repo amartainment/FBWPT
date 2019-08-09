@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantName: JumperFruit
-  orderDeadline: 15
+  orderDeadline: 10
   orderImage: {fileID: 21300000, guid: 24b38b6943977d1499c329851726e4f4, type: 3}
   currentTick: 0

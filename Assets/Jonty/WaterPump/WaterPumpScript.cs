@@ -9,10 +9,15 @@ public class WaterPumpScript : MonoBehaviour
 
     public GameObject WaterBag;
     public ParticleSystem WaterParticles;
-    
+
+    public Animator anim;
+
+
+
     public GameObject Pump(GameObject Player, Vector3 SpawnPoint)
     {
-        if(Tankhaswater == true)
+
+        if (Tankhaswater == true)
         {
             GameObject WaterBag;
             WaterBag = Instantiate(GetComponent<WaterPumpScript>().WaterBag, SpawnPoint, Quaternion.identity);
@@ -20,7 +25,8 @@ public class WaterPumpScript : MonoBehaviour
 
             if (WaterCount <= 0)
             {
-                GetComponent<SpriteRenderer>().color = new Color32(130, 130, 130, 255);
+                //GetComponent<SpriteRenderer>().color = new Color32(130, 130, 130, 255);
+                anim.SetBool("tankHasWater", Tankhaswater);
                 Tankhaswater = false;
             }
 
@@ -33,7 +39,8 @@ public class WaterPumpScript : MonoBehaviour
             WaterCount++;
             if (WaterCount >= 5)
             {
-                GetComponent<SpriteRenderer>().color = new Color32(110, 210, 210, 255);
+                //GetComponent<SpriteRenderer>().color = new Color32(110, 210, 210, 255);
+                anim.SetBool("tankHasWater", Tankhaswater);
                 Tankhaswater = true;
             }
 

@@ -133,9 +133,10 @@ MonoBehaviour:
   fertilizerCallout: {fileID: 5925714332703464711}
   allotedBurow: {fileID: 0}
   fertilizer: 0
-  waterLimit: 4
+  waterLimit: 2
   fertilizerLimit: 4
   _venusTrigger: {fileID: 0}
+  triggerBox: {fileID: 0}
 --- !u!1001 &7956673553489394624
 PrefabInstance:
   m_ObjectHideFlags: 0
