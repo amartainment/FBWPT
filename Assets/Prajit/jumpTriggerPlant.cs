@@ -65,15 +65,18 @@ public class jumpTriggerPlant : PlantGrowth
             }
             if (fertilizer >= 2)
             {
+
                 if (!jumped)
                 {
                     collision.gameObject.GetComponent<JumpForceCharacter>().CharacterJump(highJumpHeight);
                     jumped = true;
+                    jumper.SetBool("trigger", true);
                 }
 
                 else if(jumped)
                 {
                     jumper.SetBool("triggerEating", true);
+                    jumper.SetBool("trigger", false);
                     StartCoroutine("killWait",collision.gameObject);
  
 
@@ -125,7 +128,7 @@ public class jumpTriggerPlant : PlantGrowth
                 break;
             case 2:
                 jumper.SetBool("triggerState",true);
-                jumper.SetBool("trigger", true);
+                jumper.SetBool("triggerState", false);
                 enablePlantEffects();
                // gameObject.GetComponent<SpriteRenderer>().sprite = phase2;
                 break;

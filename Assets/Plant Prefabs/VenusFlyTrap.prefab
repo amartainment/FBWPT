@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59455da7bcc9794bbdf5ede00dd6471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _venusFlyTrap: {fileID: 0}
+  _venusFlyTrap: {fileID: -6281545855037874137}
 --- !u!61 &7684461427345808619
 BoxCollider2D:
   m_ObjectHideFlags: 0
