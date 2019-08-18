@@ -137,6 +137,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: jumpTriggerPlant
       objectReference: {fileID: 0}
+    - target: {fileID: 6350248938323996609, guid: c04b4dd568cf65644abbe802114e1291,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6350248938323996610, guid: c04b4dd568cf65644abbe802114e1291,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -191,6 +196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2917517586288592585, guid: c04b4dd568cf65644abbe802114e1291,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8287852473509054847, guid: c04b4dd568cf65644abbe802114e1291, type: 3}

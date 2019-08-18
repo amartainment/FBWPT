@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class VebusTrigger : MonoBehaviour
 {
-    VenusFlyTrap _venusFlyTrap;
+   public VenusFlyTrap _venusFlyTrap;
     public bool playerSpotted;
 
     public GameObject _player;
+    Transform position;
+    private bool playerAlreadyInside;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,22 +24,26 @@ public class VebusTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && !_venusFlyTrap.timerRunning)
         {
             playerSpotted = true;
             _player =  collision.gameObject;
-            //_venusFlyTrap.attack();
+           _venusFlyTrap.attack(_player);
 
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !_venusFlyTrap.timerRunning)
         {
             playerSpotted = true;
             _player = collision.gameObject;
-           // _venusFlyTrap.attack();
+            _venusFlyTrap.attack(_player);
+            //if(!playerAlreadyInside)
+            //{
+            //    StartCoroutine("playerPosition");
+            //}
 
         }
     }
@@ -60,4 +66,13 @@ public class VebusTrigger : MonoBehaviour
     {
         return playerSpotted;
     }
+
+    IEnumerator playerPosition()
+    {
+        playerAlreadyInside = true;
+        _venusFlyTrap.attack(_player);
+        yield return new WaitForSeconds(1f);
+        playerAlreadyInside = false;
+    }
+
 }

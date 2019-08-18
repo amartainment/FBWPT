@@ -148,9 +148,10 @@ MonoBehaviour:
   disabledSprite: {fileID: -6757947717349395550, guid: 5bc8b526fb7a18e459179469ca3057ba,
     type: 3}
   jumper: {fileID: 625988532738854971}
-  saplingPrefab: {fileID: 0}
-  item: {fileID: 0}
-  actualPlant: {fileID: 0}
+  saplingPrefab: {fileID: 1017674026356700015, guid: d419d5ac35319494b9ce10a5b8b2700f,
+    type: 3}
+  item: {fileID: 6350248938323996611}
+  actualPlant: {fileID: 6350248938323996609}
 --- !u!61 &6350248938323996613
 BoxCollider2D:
   m_ObjectHideFlags: 0

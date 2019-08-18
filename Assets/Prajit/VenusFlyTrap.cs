@@ -6,39 +6,68 @@ public class VenusFlyTrap : PlantGrowth
 {
     public VebusTrigger _venusTrigger;
     public BoxCollider2D triggerBox;
+    public BoxCollider2D saplingTrigger;
     
-    private bool enableEffects;
+    public bool enableEffects;
     Vector3 originalPosition;
     Vector3 attackDirection;
-    private bool timerRunning;
+    public bool timerRunning;
     private bool waitTimeIsRunning;
+     public GameObject venus;
 
+    public Transform TriggerBox1;
+    private Quaternion originalRotation;
     GameObject _player;
+
+    public float speed;
+
+    IEnumerator eating;
+    IEnumerator waiting;
+    GameObject sapling;
+    public GameObject saplingPrefab;
+    public GameObject actualPlant;
+
+    
+
+    public SpriteRenderer item;
+    public SpriteRenderer item2;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        actualPlant.SetActive(false);
         waterCycleTimer = waterCycle(cycleDuration);
         StartCoroutine(waterCycleTimer);
-        originalPosition = transform.position;
+        originalPosition = venus.transform.position;
+        originalRotation = venus.transform.rotation;
+        instantiateSapling();
     }
     // Update is called once per frame
     void Update()
     {
         base.Update();
-        if (enableEffects && !waitTimeIsRunning)
-        {
-            getPlayer();
-            lookAtPlayer();
-        }
+        //if (enableEffects && !waitTimeIsRunning)
+        //{
+        //    getPlayer();
+        //    lookAtPlayer();
+        //}
     }
 
+    void instantiateSapling()
+    {
+        sapling = Instantiate(saplingPrefab, transform.position, Quaternion.identity);
+        sapling.transform.parent = gameObject.transform.parent;
+
+    }
 
     public override void harvest()
     {
         Destroy(gameObject);
         //Instantiate Fruit.
-        Debug.Log("Ready to harvest");
+        Vector3 offset = new Vector3(0, 1.5f, 0);
+        Instantiate(fruitPrefab, transform.position + offset, Quaternion.identity);
 
     }
 
@@ -47,29 +76,38 @@ public class VenusFlyTrap : PlantGrowth
         switch (number)
         {
             case 1:
+                sapling.SetActive(false);
+                actualPlant.SetActive(true);
+               // saplingTrigger.gameObject.SetActive(false)
                 enablePlantEffects();
                 break;
             case 2:
                 enablePlantEffects();
-                triggerBox.size = new Vector2(5.5f, 1.7f);
+                triggerBox.size = new Vector2(0.58f, 0.17f);
+                TriggerBox1.localScale = new Vector2(9.3f, 9.3f);
                 break;
             case 3:
                 enablePlantEffects();
-                triggerBox.size = new Vector2(6.5f, 1.7f);
+                triggerBox.size = new Vector2(0.59f, 0.25f);
+                TriggerBox1.localScale = new Vector2(11.3f, 11.3f);
                 break;
             case 4:
-                harvest();
+               // harvest();
                 break;
         }
     }
 
     override public void disablePlantEffects()
     {
+        item.color = new Color32(126, 100, 8, 255);
+        item2.color = new Color32(126, 100, 8, 255);
         enableEffects = false;
     }
 
     override public void enablePlantEffects()
     {
+        item.color = new Color32(255, 255, 255, 255);
+        item2.color = new Color32(255, 255, 255, 255);
         Debug.Log("plant effects enabled");
         if (fertilizer > 0)
         {
@@ -77,16 +115,22 @@ public class VenusFlyTrap : PlantGrowth
         }
     }
 
-    public void lookAtPlayer()
+    public void lookAtPlayer( GameObject player)
     {
 
-        if (_player != null)
+        if (player != null && !timerRunning)
         {
+           // StopCoroutine("waitTimer");
+            attackDirection = player.transform.position;
 
-            attackDirection = _player.transform.position - transform.position;
+            var targetPos = player.transform.position;
+           // var venusPos = venus.transform.position - targetPos;
+            var angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+            venus.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            // looking = new Vector3(targetPos.x, targetPos.y, 0);
+
+            // waiting = waitTimer();
             StartCoroutine("waitTimer");
-
-
         }
 
         else
@@ -95,51 +139,57 @@ public class VenusFlyTrap : PlantGrowth
         }
     }
 
-    public void rotateHead(GameObject _player)
-    {
 
-    }
-
-    public void getPlayer()
-    {
-       _player = _venusTrigger.returnPlayer();
-    }
+    //public void getPlayer()
+    //{
+    //   _player = _venusTrigger.returnPlayer();
+    //}
 
     public IEnumerator snapBack()
     {
         timerRunning = true;
+       // StopCoroutine("waiting");
         yield return new WaitForSeconds(1f);
-        GetComponent<Rigidbody2D>().MovePosition((originalPosition));
+        // GetComponent<Rigidbody2D>().MovePosition((originalPosition));
+        venus.transform.rotation = originalRotation;
+        venus.transform.position = Vector2.MoveTowards(venus.transform.position, originalPosition, speed * Time.deltaTime);
+
         timerRunning = false;
 
     }
 
     IEnumerator waitTimer()
     {
-        waitTimeIsRunning = true;
+
+       // StopCoroutine("snapBack");
+
         Debug.Log("i m in wait timer");
         //add waiting animation here
-        yield return new WaitForSeconds(0.03f);
-        GetComponent<Rigidbody2D>().MovePosition(transform.position + Vector3.Normalize(attackDirection) * 0.2f);
+        //venus.transform.LookAt(looking);
+        //venus.transform.LookAt(looking);
+        yield return new WaitForSeconds(1f);
 
-
+            //GetComponent<Rigidbody2D>().MovePosition(transform.position + Vector3.Normalize(attackDirection)*2f);
+            // eating = snapBack();
+            venus.transform.position = Vector2.MoveTowards(venus.transform.position, attackDirection, speed * Time.deltaTime);
+            StartCoroutine("snapBack");
         //transform.position = transform.position + Vector3.Normalize(attackDirection) * 0.2f;
         //originalPosition = transform.position + Vector3.Normalize(attackDirection) * 0.2f;
-        if (!timerRunning)
-        {
-            StartCoroutine("snapBack");
-        }
-        Debug.Log("attack direction" + attackDirection);
-        Debug.Log("gameobject" + gameObject);
-        Debug.Log("player" + _player);
-        waitTimeIsRunning = false;
+        //if (!timerRunning)
+        //{
+        //    StartCoroutine("snapBack");
+        //}
     }
 
-    public void attack()
+    public void attack(GameObject player)
     {
+        if (enableEffects && player != null)
+        {
+            lookAtPlayer(player);
+        }
 
     }
-
+        
     //override public void OnTriggerStay2D(Collider2D collision)
     //{
     //    if (collision.gameObject.tag == "water")

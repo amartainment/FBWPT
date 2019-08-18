@@ -67,8 +67,15 @@ public class jumpTriggerPlant : PlantGrowth
             {
                 if (!jumped)
                 {
+                    StopCoroutine("wakeupTimeStage1");
+                    StopCoroutine("wakeupTimeStage2");
                     collision.gameObject.GetComponent<JumpForceCharacter>().CharacterJump(highJumpHeight);
                     jumped = true;
+                    jumper.SetBool("triggerState", true);
+                    if(fertilizer == 2)
+                    StartCoroutine("wakeupTimeStage1",4f);
+                    else if(fertilizer == 3)
+                    StartCoroutine("wakeupTimeStage2", 8f);
                 }
 
                 else if(jumped)
@@ -79,7 +86,6 @@ public class jumpTriggerPlant : PlantGrowth
 
                     if (fertilizer == 2)
                     {
-                        Debug.Log("i m in fertilizer");
                         // StartCoroutine("wakeupTimeStage1");
                         //StopCoroutine(wakeupStage2Timer);
                        // wakeupStage1Timer = wakeupTimeStage1(cycleDuration);
@@ -119,13 +125,11 @@ public class jumpTriggerPlant : PlantGrowth
             case 1:
                 sapling.SetActive(false);
                 actualPlant.SetActive(true);
-               jumper.SetBool("jumpingBool", true);
+                jumper.SetBool("jumpingBool", true);
                 enablePlantEffects();
 
                 break;
-            case 2:
-                jumper.SetBool("triggerState",true);
-                jumper.SetBool("trigger", true);
+            case 2:              
                 enablePlantEffects();
                // gameObject.GetComponent<SpriteRenderer>().sprite = phase2;
                 break;
@@ -159,7 +163,9 @@ public class jumpTriggerPlant : PlantGrowth
     {
         yield return new WaitForSeconds(duration);
         jumped = false;
-        
+        jumper.SetBool("triggerEating", false);
+        jumper.SetBool("triggerState", false);  
+
 
     }
 
@@ -169,6 +175,7 @@ public class jumpTriggerPlant : PlantGrowth
 
         jumped = false;
         jumper.SetBool("triggerEating", false);
+        jumper.SetBool("triggerState", false);
     }
 
     public IEnumerator killWait(GameObject _player)
@@ -178,5 +185,6 @@ public class jumpTriggerPlant : PlantGrowth
         _player.GetComponent<playerController>().DieAndRespawn();
         jumped = false;
         jumper.SetBool("triggerEating", false);
+        jumper.SetBool("triggerState",false);
     }
 }
