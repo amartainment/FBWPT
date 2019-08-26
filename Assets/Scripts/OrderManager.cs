@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class OrderManager : MonoBehaviour
 {
     public int easeDuration;
+    public cameraHandler levelCam;
     public List<GameObject> listOfAvailablePlants = new List<GameObject>();
-
+    public AudioClip scream;
     public List<GameObject> OrderList = new List<GameObject>();
     public GameObject newOrderPrefab;
     private int timeAlive = 0;
@@ -23,6 +24,9 @@ public class OrderManager : MonoBehaviour
     public int startDelay;
     public int ordersCompleted;
     public GameObject levelDoneScreen;
+    public GameObject levelFailScreen;
+    public int totalOrdersMissed = 0;
+    AudioSource monsterSounds;
 
     public Animator monsterAnimator;
 
@@ -41,6 +45,7 @@ public class OrderManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        monsterSounds = GetComponent<AudioSource>();
        // orderCreationAndAddition();
         //List<Order> newOrderList = new List<Order>();
         /*listOfAvailablePlants.Add(new Order("Orange", 40, null));
@@ -66,6 +71,13 @@ public class OrderManager : MonoBehaviour
             levelDoneScreen.SetActive(true);
             levelDoneScreen.GetComponent<startMenu>().levelDone = true;
             levelDoneScreen.GetComponent<startMenu>().endLevel();
+        }
+
+        if(totalOrdersMissed  == ordersThisLevel)
+        {
+            levelFailScreen.SetActive(true);
+            levelFailScreen.GetComponent<startMenu>().levelDone = true;
+            levelFailScreen.GetComponent<startMenu>().endLevel();
         }
     }
 
@@ -120,7 +132,7 @@ public class OrderManager : MonoBehaviour
         orderUI.GetComponent<OrderItemDisplay>().Prime(orderToAdd.GetComponent<Order>());
         orderUI.transform.SetParent(GameObject.Find("OrderPanel").transform, false);
         orderUI.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-
+        monsterSounds.PlayOneShot(scream);
 
 
         timeAlive = 0;
@@ -156,14 +168,18 @@ public class OrderManager : MonoBehaviour
     }
     public void Fireball(int a)
     {
+        levelCam.shakeDuration = 0.2f;
         ordersMissedSoFar++;
+        totalOrdersMissed++;
         if (ordersMissedSoFar == orderMissLimit)
         {
             monsterAnimator.SetInteger("monsterState", 2);
             triggered = false;
             Debug.Log("Angry!");
             ordersMissedSoFar = 0;
+            
             EventSystem.bossPissed(1);
+            monsterSounds.PlayOneShot(scream);
         }
         else
         {

@@ -31,8 +31,9 @@ public class startMenu : MonoBehaviour
         {
             Debug.Log("Scene");
             SceneManager.LoadScene(sceneNumber);
-            gameObject.SetActive(false);
+            
             levelDone = false;
+            gameObject.SetActive(false);
         }
     }
 

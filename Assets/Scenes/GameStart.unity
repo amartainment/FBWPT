@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 783562622}
   - component: {fileID: 783562621}
   - component: {fileID: 783562624}
-  - component: {fileID: 783562625}
   m_Layer: 0
   m_Name: Title_0
   m_TagString: Untagged
@@ -232,42 +231,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 783562620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b52c0eae2b8ad4479dd028c0aacdfb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: a66e568bbf24b0344944a3dfb7226155,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput.PlayerInput+DeviceLostEvent, Unity.InputSystem,
-      Version=0.9.0.0, Culture=neutral, PublicKeyToken=null
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput.PlayerInput+DeviceRegainedEvent,
-      Unity.InputSystem, Version=0.9.0.0, Culture=neutral, PublicKeyToken=null
-  m_ActionEvents: []
-  m_AutoSwitchControlScheme: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: c848e00c-960d-4deb-86ca-ebea11f9bacc
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &783562625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783562620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cf6881d0b0fbd149a0da5e625777d93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNumber: 1
 --- !u!1 &1335181790
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,10 +24,10 @@ public class OrderItemDisplay : MonoBehaviour
         if (newOrder != null)
         {
             
-            timerSlider.value = linkedOrder.currentTick; 
+            timerSlider.value =  timerSlider.maxValue - linkedOrder.currentTick; 
         }
 
-        if(timerSlider.value > timerSlider.maxValue*3/4)
+        if(timerSlider.value < timerSlider.maxValue*1/4)
         {   
             timeSliderFillArea.color = new Color32(255, 0, 0, 255);     
         }
